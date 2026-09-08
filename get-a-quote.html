@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <title>NEO Kitchens</title>
+    <title>NEO Kitchens · Get a Quote</title>
     <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="" name="author" >
+    <meta content="" name="author">
     <!-- CSS Files
     ================================================== -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
-    <link href="css/swiper.css" rel="stylesheet" type="text/css" >
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
-    <link href="css/coloring.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/coloring.css" rel="stylesheet" type="text/css">
     <!-- color scheme -->
-    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
 
+    <!-- Tailwind (lightweight) for hero consistency -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* keep existing styles, add hero-full from about page */
+        .hero-full {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: #1e1c18;
+            padding: 0 120px;
+        }
+        .hero-full .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.45;
+        }
+        .hero-full .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.25) 0%, rgba(20,18,15,0.75) 90%);
+        }
+        .hero-full .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+        .appear {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+        .appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .appear-delay-1 { transition-delay: 0.05s; }
+        .appear-delay-2 { transition-delay: 0.15s; }
+        .appear-delay-3 { transition-delay: 0.25s; }
+        .appear-delay-4 { transition-delay: 0.35s; }
+        .appear-delay-5 { transition-delay: 0.45s; }
+        .text-gold { color: #c8a86e; }
+        .bg-soft-cream { background-color: #f8f5f0; }
+        /* override header padding to match about */
+        header { padding: 0 120px; }
+        @media (max-width: 992px) { header { padding: 0 20px; } .hero-full { padding: 0 20px; } }
+    </style>
 </head>
 
 <body>
@@ -33,9 +82,9 @@
                                 <!-- logo begin -->
                                 <div id="logo">
                                     <a href="index.html">
-                                        <img class="logo-main" style="width: 120px;" src="images/logo.jpeg" alt="" >
-                                        <img class="logo-scroll" src="images/logo.jpeg" alt="" >
-                                        <img class="logo-mobile" src="images/logo.jpeg" alt="" >
+                                        <img class="logo-main" style="width: 120px;" src="images/logo.jpeg" alt="">
+                                        <img class="logo-scroll" src="images/logo.jpeg" alt="">
+                                        <img class="logo-mobile" src="images/logo.jpeg" alt="">
                                     </a>
                                 </div>
                                 <!-- logo end -->
@@ -51,7 +100,6 @@
                                     <li><a class="menu-item" href="projects.html">Projects</a>
                                     </li>
                                     <li><a href="testimonials.html">Testimonials</a></li>
-                                    
                                     <li><a class="menu-item" href="contact.html">Contact</a></li>
                                 </ul>
                                 <!-- mainmenu end -->
@@ -69,336 +117,358 @@
         </div>
     </header>
 
-        
     <main>
 
         <a href="get-a-quote.html#" id="back-to-top"></a>
-        
+
         <!-- page preloader begin -->
         <div id="de-loader"></div>
         <!-- page preloader close -->
 
-        <section class="jarallax relative overflow-hidden z-1000 mt-80">
-            <img src="images/background/3.webp" class="jarallax-img" alt="">
-            <div class="sw-overlay op-2"></div>
-            <div class="gradient-edge-start light w-40 start-40 op-9 z-2"></div>
-            <div class="abs w-40 h-100 bg-white top-0 start-0 op-9 z-2"></div>
-            <div class="container relative z-2">
-                <div class="row wow fadeInRight">
-                    <div class="col-lg-10">
-                        <h1 class="fs-sm-10vw mb-0">
+        <!-- ===== FULL-PAGE HERO (like about page) ===== -->
+        <section class="hero-full jarallax">
+            <img src="images/background/3.webp" class="hero-bg jarallax-img" alt="NEO Kitchens quote">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <span class="inline-block bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.2em] px-4 py-1.5 rounded-full mb-4 appear appear-delay-1">START YOUR PROJECT</span>
+                        <h1 class="text-white text-5xl md:text-7xl font-bold leading-tight mb-4 appear appear-delay-2">
                             Get a Quote
                         </h1>
-
-                        <ul class="crumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Get a Quote</li>
-                        </ul>
+                        <p class="text-white/80 text-lg max-w-xl appear appear-delay-3">
+                            Tell us about your vision – we'll respond with a detailed estimate and a timeline tailored to your needs.
+                        </p>
                     </div>
                 </div>
+                <ul class="crumb flex items-center gap-2 text-white/70 text-sm mt-6 appear appear-delay-4">
+                    <li><a href="index.html" class="text-white/60 hover:text-white">Home</a></li>
+                    <li class="text-white/30">/</li>
+                    <li class="active text-white font-medium">Get a Quote</li>
+                </ul>
             </div>
         </section>
 
-        <section>
+        <!-- ===== QUOTE FORM (unchanged) ===== -->
+        <section class="bg-soft-cream py-5">
             <div class="container">
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-8">
-                        <div id="form-wrapper">
-                            <form name="estimator-form" id="estimator-form" class="position-relative z1000" action="https://www.designesia.com/themes/renovast/get-a-quote.php">
+                        <div class="bg-white p-5 rounded-3 shadow-sm">
+                            <div id="form-wrapper">
+                                <form name="estimator-form" id="estimator-form" class="position-relative z1000" action="https://www.designesia.com/themes/renovast/get-a-quote.php">
 
-                                <div class="row g-4">
+                                    <div class="row g-4">
 
-                                    <!-- Personal Details -->
-                                    <div class="col-12">
-                                        <h4>Personal Details</h4>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Your Name *</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Write your name">
+                                        <!-- Personal Details -->
+                                        <div class="col-12">
+                                            <h4>Personal Details</h4>
                                         </div>
-                                    </div>
 
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Email *</label>
-                                            <input type="email" name="email" class="form-control" placeholder="Email address">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Phone *</label>
-                                            <input type="text" name="phone" class="form-control" placeholder="Phone number">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Company Name (Optional)</label>
-                                            <input type="text" name="company" class="form-control" placeholder="Company name">
-                                        </div>
-                                    </div>
-
-                                    <!-- Project Description -->
-                                    <div class="col-12 pt-4">
-                                        <h4>Tell Us More About Your Project</h4>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <div class="field-set">
-                                            <label>Project Description *</label>
-                                            <textarea name="project_description" class="form-control" rows="6" placeholder="Describe your renovation project..."></textarea>
-                                        </div>
-                                    </div>
-
-                                    <!-- Project Type -->
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Project Type *</label>
-                                            <div class="relative">
-                                                <select name="project_type" class="form-control">
-                                                    <option value="">Select Project Type</option>
-                                                    <option>Residential</option>
-                                                    <option>Commercial</option>
-                                                    <option>Kitchen Remodeling</option>
-                                                    <option>Bathroom Renovation</option>
-                                                    <option>Whole Home Renovation</option>
-                                                    <option>Interior Remodeling</option>
-                                                    <option>Home Addition</option>
-                                                    <option>Exterior Renovation</option>
-                                                </select>
-                                                <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Your Name *</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Write your name">
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Property Size -->
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Property Size</label>
-                                            <div class="relative">
-                                                <select name="property_size" class="form-control">
-                                                    <option value="">Select Property Size</option>
-                                                    <option>Under 1,000 sq ft</option>
-                                                    <option>1,000 - 2,000 sq ft</option>
-                                                    <option>2,000 - 3,500 sq ft</option>
-                                                    <option>3,500 - 5,000 sq ft</option>
-                                                    <option>Over 5,000 sq ft</option>
-                                                </select>
-                                                <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Email *</label>
+                                                <input type="email" name="email" class="form-control" placeholder="Email address">
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Budget -->
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Estimated Budget *</label>
-                                            <div class="relative">
-                                                <select name="budget" class="form-control">
-                                                    <option value="">Select Budget</option>
-                                                    <option>Under $50K</option>
-                                                    <option>$50K - $100K</option>
-                                                    <option>$100K - $250K</option>
-                                                    <option>$250K - $500K</option>
-                                                    <option>$500K - $1M</option>
-                                                    <option>Over $1M</option>
-                                                </select>
-                                                <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Phone *</label>
+                                                <input type="text" name="phone" class="form-control" placeholder="Phone number">
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Timeline -->
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Project Timeline *</label>
-                                            <div class="relative">
-                                                <select name="timeline" class="form-control">
-                                                    <option value="">Select Timeline</option>
-                                                    <option>Urgent (Within 1 Month)</option>
-                                                    <option>1 - 3 Months</option>
-                                                    <option>3 - 6 Months</option>
-                                                    <option>6 - 12 Months</option>
-                                                    <option>More Than 1 Year</option>
-                                                </select>
-                                                <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Company Name (Optional)</label>
+                                                <input type="text" name="company" class="form-control" placeholder="Company name">
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Preferred Style -->
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Preferred Style</label>
-                                            <div class="relative">
-                                                <select name="style" class="form-control">
-                                                    <option value="">Select Style</option>
-                                                    <option>Modern</option>
-                                                    <option>Contemporary</option>
-                                                    <option>Minimalist</option>
-                                                    <option>Scandinavian</option>
-                                                    <option>Industrial</option>
-                                                    <option>Classic</option>
-                                                    <option>Farmhouse</option>
-                                                    <option>Luxury</option>
-                                                </select>
-                                                <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                        <!-- Project Description -->
+                                        <div class="col-12 pt-4">
+                                            <h4>Tell Us More About Your Project</h4>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="field-set">
+                                                <label>Project Description *</label>
+                                                <textarea name="project_description" class="form-control" rows="6" placeholder="Describe your renovation project..."></textarea>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Preferred Start Date -->
-                                    <div class="col-md-6">
-                                        <div class="field-set">
-                                            <label>Preferred Start Date</label>
-                                            <input type="date" name="start_date" class="form-control">
+                                        <!-- Project Type -->
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Project Type *</label>
+                                                <div class="relative">
+                                                    <select name="project_type" class="form-control">
+                                                        <option value="">Select Project Type</option>
+                                                        <option>Residential</option>
+                                                        <option>Commercial</option>
+                                                        <option>Kitchen Remodeling</option>
+                                                        <option>Bathroom Renovation</option>
+                                                        <option>Whole Home Renovation</option>
+                                                        <option>Interior Remodeling</option>
+                                                        <option>Home Addition</option>
+                                                        <option>Exterior Renovation</option>
+                                                    </select>
+                                                    <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Address -->
-                                    <div class="col-md-12">
-                                        <div class="field-set">
-                                            <label>Project Address</label>
-                                            <input type="text" name="address" class="form-control" placeholder="Property address">
+                                        <!-- Property Size -->
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Property Size</label>
+                                                <div class="relative">
+                                                    <select name="property_size" class="form-control">
+                                                        <option value="">Select Property Size</option>
+                                                        <option>Under 1,000 sq ft</option>
+                                                        <option>1,000 - 2,000 sq ft</option>
+                                                        <option>2,000 - 3,500 sq ft</option>
+                                                        <option>3,500 - 5,000 sq ft</option>
+                                                        <option>Over 5,000 sq ft</option>
+                                                    </select>
+                                                    <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Special Requirements -->
-                                    <div class="col-md-12">
-                                        <div class="field-set">
-                                            <label>Special Requirements</label>
-                                            <textarea name="requirements" class="form-control" rows="5" placeholder="Tell us about your preferred materials, design inspiration, accessibility needs, custom features, or anything else you'd like us to know..."></textarea>
+                                        <!-- Budget -->
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Estimated Budget *</label>
+                                                <div class="relative">
+                                                    <select name="budget" class="form-control">
+                                                        <option value="">Select Budget</option>
+                                                        <option>Under $50K</option>
+                                                        <option>$50K - $100K</option>
+                                                        <option>$100K - $250K</option>
+                                                        <option>$250K - $500K</option>
+                                                        <option>$500K - $1M</option>
+                                                        <option>Over $1M</option>
+                                                    </select>
+                                                    <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                                </div>
+                                            </div>
                                         </div>
+
+                                        <!-- Timeline -->
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Project Timeline *</label>
+                                                <div class="relative">
+                                                    <select name="timeline" class="form-control">
+                                                        <option value="">Select Timeline</option>
+                                                        <option>Urgent (Within 1 Month)</option>
+                                                        <option>1 - 3 Months</option>
+                                                        <option>3 - 6 Months</option>
+                                                        <option>6 - 12 Months</option>
+                                                        <option>More Than 1 Year</option>
+                                                    </select>
+                                                    <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Preferred Style -->
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Preferred Style</label>
+                                                <div class="relative">
+                                                    <select name="style" class="form-control">
+                                                        <option value="">Select Style</option>
+                                                        <option>Modern</option>
+                                                        <option>Contemporary</option>
+                                                        <option>Minimalist</option>
+                                                        <option>Scandinavian</option>
+                                                        <option>Industrial</option>
+                                                        <option>Classic</option>
+                                                        <option>Farmhouse</option>
+                                                        <option>Luxury</option>
+                                                    </select>
+                                                    <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Preferred Start Date -->
+                                        <div class="col-md-6">
+                                            <div class="field-set">
+                                                <label>Preferred Start Date</label>
+                                                <input type="date" name="start_date" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <!-- Address -->
+                                        <div class="col-md-12">
+                                            <div class="field-set">
+                                                <label>Project Address</label>
+                                                <input type="text" name="address" class="form-control" placeholder="Property address">
+                                            </div>
+                                        </div>
+
+                                        <!-- Special Requirements -->
+                                        <div class="col-md-12">
+                                            <div class="field-set">
+                                                <label>Special Requirements</label>
+                                                <textarea name="requirements" class="form-control" rows="5" placeholder="Tell us about your preferred materials, design inspiration, accessibility needs, custom features, or anything else you'd like us to know..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit -->
+                                        <div class="col-md-12">
+                                            <input type="submit" id="send_message" value="Get Free Estimate" class="btn-main">
+                                        </div>
+
                                     </div>
 
-                                    <!-- Submit -->
-                                    <div class="col-md-12">
-                                        <input type="submit" id="send_message" value="Get Free Estimate" class="btn-main">
-                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="quote_success" class="d-none mt-5">
+
+                                <div class="p-5 bg-light rounded-1 shadow-sm">
+
+                                    <h3 class="mb-3">
+                                        <i class="fa fa-check-circle"></i>
+                                        Thank You!
+                                    </h3>
+
+                                    <p>
+                                        Your renovation quote request has been successfully submitted.
+                                        We will review your project and contact you shortly.
+                                    </p>
+
+                                    <div id="quote_summary"></div>
 
                                 </div>
 
-                            </form>
-                        </div>
-
-                        <div id="quote_success" class="d-none mt-5">
-
-                            <div class="p-5 bg-light rounded-1 shadow-sm">
-
-                                <h3 class="mb-3">
-                                    <i class="fa fa-check-circle"></i>
-                                    Thank You!
-                                </h3>
-
-                                <p>
-                                    Your renovation quote request has been successfully submitted.
-                                    We will review your project and contact you shortly.
-                                </p>
-
-                                <div id="quote_summary"></div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
-        
+
     </main>
-        
-  <!-- ===================================================
+
+    <!-- ===================================================
        FOOTER (same as about page)
-  ==================================================== -->
-  <footer class="section-dark">
-    <div class="container">
-      <div class="row gx-5">
-        <div class="col-lg-4 col-sm-6">
-          <img src="images/logo.jpeg" class="logo-footer" style="width: 130px; border-radius: 8px;" alt="NEO Kitchens">
-          <div class="spacer-20"></div>
-          <p class="text-stone-400 text-sm leading-relaxed">
-            NEO Kitchens is an architectural kitchen remodeling and whole-home renovation studio. We turn residential spaces into timeless, bespoke works of art through European engineering and master craftsmanship.
-          </p>
-          <div class="social-icons mb-sm-30">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
-          <div class="row">
-            <div class="col-lg-6 col-sm-6">
-              <div class="widget">
-                <h2 class="hs-5">Explore</h2>
-                <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="projects.html">Projects</a></li>
-                  <li><a href="testimonials.html" class="text-gold">Testimonials</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-              </div>
+    ==================================================== -->
+    <footer class="section-dark">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-sm-6">
+                    <img src="images/logo.jpeg" class="logo-footer" style="width: 130px; border-radius: 8px;" alt="NEO Kitchens">
+                    <div class="spacer-20"></div>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        NEO Kitchens is an architectural kitchen remodeling and whole-home renovation studio. We turn residential spaces into timeless, bespoke works of art through European engineering and master craftsmanship.
+                    </p>
+                    <div class="social-icons mb-sm-30">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="widget">
+                                <h2 class="hs-5">Explore</h2>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="testimonials.html" class="text-gold">Testimonials</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="widget">
+                                <h2 class="hs-5">Our Services</h2>
+                                <ul>
+                                    <li><a href="services.html">Kitchen Remodeling</a></li>
+                                    <li><a href="services.html">Bathroom Renovation</a></li>
+                                    <li><a href="services.html">Whole Home Renovation</a></li>
+                                    <li><a href="services.html">Living Suite Design</a></li>
+                                    <li><a href="services.html">Architectural Additions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                    <div class="widget">
+                        <div class="fw-bold text-white"><i class="icofont-clock-time me-2 id-color-2"></i>Working Hours</div>
+                        Monday - Sat: 8:00 AM - 6:00 PM<br>
+                        <div class="spacer-20"></div>
+                        <div class="fw-bold text-white"><i class="icofont-location-pin me-2 id-color-2"></i>Design Studio</div>
+                        100 S Main Street, New York, NY 10001
+                        <div class="spacer-20"></div>
+                        <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color-2"></i>Email Us</div>
+                        contact@neokitchens.com
+                        <div class="spacer-10"></div>
+                        <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color-2"></i>Call Us</div>
+                        +1 (800) 123-4567
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6 col-sm-6">
-              <div class="widget">
-                <h2 class="hs-5">Our Services</h2>
-                <ul>
-                  <li><a href="services.html">Kitchen Remodeling</a></li>
-                  <li><a href="services.html">Bathroom Renovation</a></li>
-                  <li><a href="services.html">Whole Home Renovation</a></li>
-                  <li><a href="services.html">Living Suite Design</a></li>
-                  <li><a href="services.html">Architectural Additions</a></li>
-                </ul>
-              </div>
+        </div>
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex">
+                            <div class="de-flex-col">Copyright &copy; 2026 NEO Kitchens. All Rights Reserved.</div>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#">Terms &amp; Conditions</a></li>
+                                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
-          <div class="widget">
-            <div class="fw-bold text-white"><i class="icofont-clock-time me-2 id-color-2"></i>Working Hours</div>
-            Monday - Sat: 8:00 AM - 6:00 PM<br>
-            <div class="spacer-20"></div>
-            <div class="fw-bold text-white"><i class="icofont-location-pin me-2 id-color-2"></i>Design Studio</div>
-            100 S Main Street, New York, NY 10001
-            <div class="spacer-20"></div>
-            <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color-2"></i>Email Us</div>
-            contact@neokitchens.com
-            <div class="spacer-10"></div>
-            <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color-2"></i>Call Us</div>
-            +1 (800) 123-4567
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="subfooter">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="de-flex">
-              <div class="de-flex-col">Copyright &copy; 2026 NEO Kitchens. All Rights Reserved.</div>
-              <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Terms &amp; Conditions</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+
     <!-- Javascript Files
     ================================================== -->
     <script src="js/vendors.js"></script>
     <script src="js/designesia.js"></script>
     <script src="js/validation-get-a-quote.js"></script>
-    
+
+    <!-- Appearance effect: Intersection Observer (like about) -->
+    <script>
+        (function() {
+            const appears = document.querySelectorAll('.appear');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+            appears.forEach(el => observer.observe(el));
+            // also trigger for hero elements already visible
+            document.querySelectorAll('.hero-full .appear').forEach(el => el.classList.add('visible'));
+        })();
+    </script>
+
 </body>
 
 </html>

@@ -1,0 +1,291 @@
+/* ==================================================
+   MOBILE NAVBAR + LOGO
+   ================================================== */
+
+@media only screen and (max-width: 767px) {
+
+    /* ==============================
+       HEADER
+       ============================== */
+
+    header.header-float {
+        width: 100%;
+        height: 70px;
+        padding: 0;
+        background: #ffffff !important;
+        position: relative;
+        z-index: 9999;
+    }
+
+    header.header-float .header-inner {
+        width: 100%;
+        height: 70px;
+        margin: 0;
+        padding: 0 20px;
+        background: #ffffff !important;
+    }
+
+    header .de-flex {
+        height: 70px;
+        min-height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    /* ==============================
+       SMALL LOGO
+       ============================== */
+
+    header #logo {
+        display: flex;
+        align-items: center;
+        height: 70px;
+    }
+
+    header #logo a {
+        display: flex;
+        align-items: center;
+    }
+
+    header #logo img.logo-main,
+    header #logo img.logo-scroll,
+    header #logo img.logo-mobile {
+        width: 80px !important;
+        max-width: 80px !important;
+        height: auto !important;
+        display: block;
+    }
+
+
+    /* ==============================
+       MENU AREA
+       ============================== */
+
+    header .menu_side_area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hide Get A Quote */
+    header .menu_side_area .btn-main {
+        display: none !important;
+    }
+
+
+    /* ==============================
+       THREE LINE HAMBURGER
+       ============================== */
+
+    /* ==========================================
+   MOBILE MENU BUTTON
+   ========================================== */
+
+#menu-btn {
+    display: flex !important;
+    position: relative !important;
+    width: 36px !important;
+    height: 36px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+    color: #222 !important;
+    background: transparent !important;
+    float: none !important;
+
+    /* Disable theme FontAwesome icon */
+    font-family: inherit !important;
+}
+
+
+/* Remove the original span if present */
+#menu-btn > span,
+#menu-btn > span::before,
+#menu-btn > span::after {
+    display: none !important;
+    content: none !important;
+}
+
+
+/* ==========================================
+   HAMBURGER
+   ========================================== */
+
+#menu-btn::before {
+    content: "" !important;
+    position: absolute !important;
+
+    width: 22px !important;
+    height: 3px !important;
+
+    background: #222 !important;
+    border: none !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -8px) !important;
+}
+
+
+/* Middle hamburger line */
+#menu-btn::after {
+    content: "" !important;
+    position: absolute !important;
+
+    width: 22px !important;
+    height: 3px !important;
+
+    background: #222 !important;
+    border: none !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    box-shadow: 0 8px 0 #222 !important;
+}
+
+
+/* ==========================================
+   OPEN MENU = X
+   Handle BOTH possible classes
+   ========================================== */
+
+#menu-btn.active::before,
+#menu-btn.menu-open::before {
+    content: "" !important;
+
+    width: 22px !important;
+    height: 3px !important;
+
+    background: #222 !important;
+    border: none !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) rotate(45deg) !important;
+
+    box-shadow: none !important;
+}
+
+
+#menu-btn.active::after,
+#menu-btn.menu-open::after {
+    content: "" !important;
+
+    width: 22px !important;
+    height: 3px !important;
+
+    background: #222 !important;
+    border: none !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
+
+    box-shadow: none !important;
+}
+
+
+    /* ==============================
+       MOBILE MENU CONTAINER
+       ============================== */
+
+    header .header-col-mid {
+        display: block !important;
+        position: static;
+    }
+
+    #mainmenu {
+        display: none !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+
+        margin: 0 !important;
+        padding: 0 20px !important;
+
+        background: #ffffff !important;
+
+        border-top: 1px solid #eeeeee;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+        z-index: 10000;
+    }
+
+
+    /* ==============================
+       SHOW MENU ONLY WHEN OPEN
+       ============================== */
+
+    #mainmenu.open {
+        display: block !important;
+    }
+
+
+    /* ==============================
+       MENU ITEMS
+       ============================== */
+
+    #mainmenu li {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-bottom: 1px solid #eeeeee !important;
+    }
+
+    #mainmenu li:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+    }
+
+    #mainmenu li a,
+    #mainmenu li a.menu-item {
+        display: block !important;
+        width: 100% !important;
+
+        padding: 18px 5px !important;
+
+        color: #222222 !important;
+        background: transparent !important;
+
+        font-size: 15px;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    #mainmenu li a:hover {
+        color: #c99a25 !important;
+        background: transparent !important;
+    }
+
+
+    /* ==============================
+       REMOVE OLD MOBILE MENU RULES
+       ============================== */
+
+    header.header-mobile #mainmenu {
+        position: absolute !important;
+    }
+
+}
+
+
+
+

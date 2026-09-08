@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <title>NEO Kitchens</title>
     <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="" name="author" >
+    <meta content="" name="author">
     <!-- CSS Files
     ================================================== -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
-    <link href="css/swiper.css" rel="stylesheet" type="text/css" >
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
-    <link href="css/coloring.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/coloring.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/navbar.css">
     <!-- color scheme -->
-    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -32,9 +33,8 @@
                                 <!-- logo begin -->
                                 <div id="logo">
                                     <a href="index.html">
-                                        <img class="logo-main" style="width: 120px;" src="images/logo.jpeg" alt="" >
-                                        <img class="logo-scroll" src="images/logo.jpeg" alt="" >
-                                        <img class="logo-mobile" src="images/logo.jpeg" alt="" >
+                                        <img class="logo-main" src="images/logo.jpeg" alt="NEO Kitchens">
+                                
                                     </a>
                                 </div>
                                 <!-- logo end -->
@@ -42,15 +42,11 @@
                             <div class="de-flex-col header-col-mid">
                                 <!-- mainemenu begin -->
                                 <ul id="mainmenu">
-                                    <li><a class="menu-item" href="index.html">Home</a>
-                                    </li>
+                                    <li><a class="menu-item" href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-                                    <li><a class="menu-item" href="services.html">Services</a>
-                                    </li>
-                                    <li><a class="menu-item" href="projects.html">Projects</a>
-                                    </li>
+                                    <li><a class="menu-item" href="services.html">Services</a></li>
+                                    <li><a class="menu-item" href="projects.html">Projects</a></li>
                                     <li><a href="testimonials.html">Testimonials</a></li>
-                                    
                                     <li><a class="menu-item" href="contact.html">Contact</a></li>
                                 </ul>
                                 <!-- mainmenu end -->
@@ -58,7 +54,7 @@
                             <div class="de-flex-col">
                                 <div class="menu_side_area">
                                     <a href="get-a-quote.html" class="btn-main fx-slide"><span>Get a Quote</span></a>
-                                    <span id="menu-btn"></span>
+                                    <span id="menu-btn"><span></span></span>
                                 </div>
                             </div>
                         </div>
@@ -1086,6 +1082,46 @@
     <script src="js/jquery.twentytwenty.js"></script>
     <script src="js/jquery.event.move.js"></script>
     <script src="js/custom-twentytwenty.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mainMenu = document.getElementById('mainmenu');
+
+    if (!menuBtn || !mainMenu) return;
+
+    menuBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        menuBtn.classList.toggle('active');
+        mainMenu.classList.toggle('open');
+    });
+
+    // Close when clicking a menu item
+    mainMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            menuBtn.classList.remove('active');
+            mainMenu.classList.remove('open');
+        });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+        if (
+            !menuBtn.contains(e.target) &&
+            !mainMenu.contains(e.target)
+        ) {
+            menuBtn.classList.remove('active');
+            mainMenu.classList.remove('open');
+        }
+    });
+
+});
+</script>
 
 </body>
 

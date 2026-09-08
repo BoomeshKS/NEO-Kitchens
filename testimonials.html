@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NEO Kitchens · Client Testimonials & Reviews</title>
+  <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Read authentic reviews and homeowner stories for NEO Kitchens – luxury kitchen remodeling, bespoke cabinetry, and architectural home renovations." name="description">
+  <meta content="NEO Kitchens reviews, kitchen remodeling testimonials, client stories, luxury home renovation feedback" name="keywords">
+  <meta content="NEO Kitchens" name="author">
+
+  <!-- CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+  <link href="css/plugins.css" rel="stylesheet" type="text/css">
+  <link href="css/swiper.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/coloring.css" rel="stylesheet" type="text/css">
+  <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body { background: #fcfaf7; color: #1e1c18; }
+    .section-pad { padding: 90px 0; min-height:100vh; }
+    .text-gold { color: #c8a86e; }
+    .border-gold { border-color: #c8a86e; }
+    .bg-gold { background-color: #c8a86e; }
+    .bg-soft-cream { background-color: #f8f5f0; }
+    .bg-warm-dark { background-color: #1e1c18; }
+    .shadow-soft { box-shadow: 0 15px 40px -10px rgba(0,0,0,0.07); }
+    .shadow-luxury { box-shadow: 0 25px 50px -12px rgba(200,168,110,0.18); }
+    .gradient-gold { background: linear-gradient(135deg, #c8a86e 0%, #b8925a 100%); }
+    .btn-outline-gold { border: 2px solid #c8a86e; color: #1e1c18; transition: all 0.3s; }
+    .btn-outline-gold:hover { background: #c8a86e; color: #fff; }
+    .stat-number { font-size: 3.2rem; font-weight: 700; line-height: 1.1; }
+    .hover-lift { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 22px 45px -10px rgba(0,0,0,0.13); }
+    .deco-line { width: 50px; height: 3px; background: #c8a86e; display: inline-block; border-radius: 4px; }
+
+    /* full-page cinematic hero */
+    .hero-full {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: #181614;
+      overflow: hidden;
+    }
+    .hero-full .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+      filter: saturate(1.1);
+    }
+    .hero-full .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 35% 45%, rgba(0,0,0,0.2) 0%, rgba(20,18,15,0.88) 90%);
+    }
+    .hero-full .hero-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding-top: 100px;
+      padding-bottom: 70px;
+    }
+
+    /* appearance effect (fade + slide-up) */
+    .appear {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .appear.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .appear-delay-1 { transition-delay: 0.08s; }
+    .appear-delay-2 { transition-delay: 0.16s; }
+    .appear-delay-3 { transition-delay: 0.24s; }
+    .appear-delay-4 { transition-delay: 0.32s; }
+    .appear-delay-5 { transition-delay: 0.40s; }
+    .appear-delay-6 { transition-delay: 0.48s; }
+
+    /* filter tabs */
+    .filter-btn {
+      transition: all 0.28s ease;
+      color: #64748b;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+    }
+    .filter-btn:hover {
+      color: #1e1c18;
+      border-color: #c8a86e;
+    }
+    .filter-btn.active {
+      background: #1e1c18;
+      color: #ffffff;
+      border-color: #1e1c18;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    /* testimonial card animation */
+    .testi-card {
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .testi-card.is-hidden {
+      display: none;
+    }
+
+    /* quote badge */
+    .quote-mark {
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(200, 168, 110, 0.22);
+    }
+
+    /* interactive modal */
+    .review-modal {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .review-modal.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .review-modal:not(.active) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* pulse ring animation */
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(200, 168, 110, 0.6); }
+      70% { transform: scale(1); box-shadow: 0 0 0 16px rgba(200, 168, 110, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(200, 168, 110, 0); }
+    }
+    .pulse-btn {
+      animation: pulseRing 2.2s infinite;
+    }
+
+    /* star interactive picker */
+    .star-picker .star-item {
+      cursor: pointer;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+    .star-picker .star-item:hover {
+      transform: scale(1.2);
+    }
+
+    /* fix overlap: ensure section spacing */
+    .no-overlap {
+      margin-bottom: 0;
+      padding-bottom: 90px;
+    }
+    .cta-section {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+    @media (max-width: 768px) {
+      .section-pad { padding: 60px 0; }
+      .no-overlap { padding-bottom: 60px; }
+      .cta-section { padding-top: 60px; padding-bottom: 60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER (transparent, floating) -->
+  <header class="transparent header-light header-float">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header-inner">
+            <div class="de-flex sm-pt10">
+              <div class="de-flex-col">
+                <!-- logo begin -->
+                <div id="logo">
+                  <a href="index.html">
+                    <img class="logo-main" style="width: 120px;" src="images/logo.jpeg" alt="NEO Kitchens">
+                    <img class="logo-scroll" src="images/logo.jpeg" alt="NEO Kitchens">
+                    <img class="logo-mobile" src="images/logo.jpeg" alt="NEO Kitchens">
+                  </a>
+                </div>
+                <!-- logo end -->
+              </div>
+              <div class="de-flex-col header-col-mid">
+                <!-- mainmenu begin -->
+                <ul id="mainmenu">
+                  <li><a class="menu-item" href="index.html">Home</a></li>
+                  <li><a class="menu-item" href="about.html">About Us</a></li>
+                  <li><a class="menu-item" href="services.html">Services</a></li>
+                  <li><a class="menu-item" href="projects.html">Projects</a></li>
+                  <li><a class="menu-item active text-gold" href="testimonials.html">Testimonials</a></li>
+                  <li><a class="menu-item" href="contact.html">Contact</a></li>
+                </ul>
+                <!-- mainmenu end -->
+              </div>
+              <div class="de-flex-col">
+                <div class="menu_side_area">
+                  <a href="get-a-quote.html" class="btn-main fx-slide"><span>Get a Quote</span></a>
+                  <span id="menu-btn"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <a href="#" id="back-to-top"></a>
+    <div id="de-loader"></div>
+
+    <!-- ===================================================
+         1. FULL-SCREEN HERO SECTION (100vh)
+    ==================================================== -->
+    <section class="hero-full jarallax">
+      <img src="images/background/3.webp" class="hero-bg jarallax-img" alt="NEO Kitchens luxury transformations">
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <div class="row items-center">
+          <div class="col-lg-8">
+            <h1 class="text-white text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.08] mb-5 appear appear-delay-2 tracking-tight">
+              Spaces Transformed,<br>
+              <span class="text-gold italic font-serif font-normal">Lives Enriched.</span>
+            </h1>
+            <p class="text-white/85 text-lg md:text-xl max-w-2xl appear appear-delay-3 font-light leading-relaxed mb-8">
+              Read how our bespoke craftsmanship, architectural precision, and white-glove project delivery have brought dream homes to life across the country.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 appear appear-delay-4">
+              <a href="#reviews-grid" class="btn-main fx-slide px-6 py-3.5 rounded-full bg-gold text-white font-medium hover:bg-amber-600 transition shadow-lg">
+                <span>Explore Client Reviews</span>
+              </a>
+              <button type="button" id="open-review-btn" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/30 text-white font-medium hover:bg-white hover:text-stone-900 transition backdrop-blur-sm">
+                <i class="fa-solid fa-pen-to-square text-gold"></i>
+                <span>Share Your Experience</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-8 lg:mt-0 appear appear-delay-5">
+            <!-- Glassmorphism Summary Card -->
+            <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
+              <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-2xl bg-gold/20 flex items-center justify-center border border-gold/40">
+                    <i class="fa-solid fa-trophy text-gold text-xl"></i>
+                  </div>
+                  <div>
+                    <h2 class="text-xs uppercase tracking-widest text-white/60 mb-0">Reputation Rating</h2>
+                    <h3 class="text-xl font-bold text-white mb-0">Exceptional 4.9 / 5</h3>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-xs text-white/60">280+ Verified</span>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-sm text-white/80">
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><i class="fa fa-check text-gold text-xs"></i> 98.4% On-Time Completion</span>
+                  <span class="font-semibold text-white">Top 1%</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><i class="fa fa-check text-gold text-xs"></i> Client Referral Rate</span>
+                  <span class="font-semibold text-white">96.8%</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><i class="fa fa-check text-gold text-xs"></i> Workmanship Guarantee</span>
+                  <span class="font-semibold text-white">Lifetime</span>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/15 flex items-center justify-between text-xs text-white/60">
+                <span>Audited Reviews</span>
+                <span class="text-gold font-medium">Google · Houzz · Trustpilot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="crumb flex items-center gap-2 text-white/70 text-sm mt-8 appear appear-delay-6">
+          <li><a href="index.html" class="text-white/60 hover:text-white transition">Home</a></li>
+          <li class="text-white/30">/</li>
+          <li class="active text-white font-medium">Testimonials</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         3. FEATURED CLIENT SPOTLIGHT ("Story of the Month")
+    ==================================================== -->
+    <section class="section-pad bg-soft-cream relative overflow-hidden">
+      <div class="container max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 appear appear-delay-1">
+          <span class="inline-block text-xs uppercase font-bold tracking-[0.2em] text-gold mb-2">CLIENT SPOTLIGHT</span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900">The Story of the Month</h2>
+          <div class="deco-line my-3"></div>
+          <p class="text-stone-600">A look behind the curtain of our most celebrated architectural kitchen transformations.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl overflow-hidden shadow-soft border border-stone-200/80 hover-lift appear appear-delay-2">
+          <div class="row g-0 items-stretch">
+            <!-- Project Image Column -->
+            <div class="col-lg-6 relative min-h-[360px] lg:min-h-full">
+              <img src="images/projects/1.webp" alt="Tribeca Penthouse Kitchen Renovation" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <span class="bg-gold/90 text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full">Penthouse Renovation</span>
+                <h4 class="text-xl font-bold mt-2 text-white">Tribeca Skyline Residence · New York</h4>
+                <p class="text-xs text-white/80 mb-0">Project Scope: Full Kitchen Architecture &amp; Custom Millwork</p>
+              </div>
+            </div>
+
+            <!-- Client Review & Details Column -->
+            <div class="col-lg-6 p-8 sm:p-12 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-lg flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-xs font-semibold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                    <i class="fa fa-check-circle me-1"></i> Verified Project
+                  </span>
+                </div>
+
+                <div class="quote-mark">“</div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-stone-900 -mt-8 mb-4 leading-snug">
+                  "NEO Kitchens turned our cramped layout into an architectural marvel that anchors our entire home."
+                </h3>
+
+                <p class="text-stone-600 leading-relaxed text-base mb-6">
+                  "From the first 3D render to the precise installation of the Calacatta marble waterfall island, every member of the NEO team was consummate, punctual, and obsessed with perfection. We host dinners every weekend now, and our guests are continually captivated by the seamless cabinetry and concealed pantry."
+                </p>
+
+                <!-- Project Specs Pill Grid -->
+                <div class="grid grid-cols-2 gap-3 py-4 border-y border-stone-100 text-xs text-stone-600 mb-6">
+                  <div><strong class="text-stone-900">Timeline:</strong> 7 Weeks (Completed On Schedule)</div>
+                  <div><strong class="text-stone-900">Cabinetry:</strong> Custom Rift-Cut White Oak</div>
+                  <div><strong class="text-stone-900">Countertops:</strong> Italian Calacatta Gold Marble</div>
+                  <div><strong class="text-stone-900">Appliances:</strong> Integrated Miele &amp; Sub-Zero</div>
+                </div>
+              </div>
+
+              <!-- Client Info Footer -->
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center gap-4">
+                  <img src="images/testimonial/1.webp" alt="Olivia Carter" class="w-14 h-14 rounded-full object-cover border-2 border-gold/40 shadow-sm">
+                  <div>
+                    <h5 class="text-stone-900 font-bold text-base mb-0">Olivia &amp; David Carter</h5>
+                    <p class="text-stone-500 text-xs mb-0">Tribeca, New York · Completed October 2025</p>
+                  </div>
+                </div>
+                <a href="projects.html" class="hidden sm:inline-flex items-center gap-1 text-xs font-bold text-gold hover:text-stone-900 transition">
+                  View Case Study <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         4. INTERACTIVE FILTERABLE TESTIMONIALS GRID
+    ==================================================== -->
+    <section id="reviews-grid" class="section-pad bg-white relative" style="min-height:200vh">
+      <div class="container max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div class="appear appear-delay-1">
+            <span class="inline-block text-xs uppercase font-bold tracking-[0.2em] text-gold mb-2">VERIFIED REVIEWS</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900">Voices of Our Homeowners</h2>
+            <div class="deco-line my-3"></div>
+            <p class="text-stone-600 max-w-xl mb-0">Every testimonial reflects real families, real homes, and our relentless commitment to precision craftsmanship.</p>
+          </div>
+
+          <!-- Filter Navigation Tabs -->
+          <div class="flex flex-wrap gap-2 appear appear-delay-2">
+            <button type="button" class="filter-btn active text-xs font-semibold px-4 py-2.5 rounded-full" data-filter="all">All Reviews (8)</button>
+            <button type="button" class="filter-btn text-xs font-semibold px-4 py-2.5 rounded-full" data-filter="kitchen">Kitchens</button>
+            <button type="button" class="filter-btn text-xs font-semibold px-4 py-2.5 rounded-full" data-filter="bath">Bathrooms</button>
+            <button type="button" class="filter-btn text-xs font-semibold px-4 py-2.5 rounded-full" data-filter="home">Whole Home</button>
+            <button type="button" class="filter-btn text-xs font-semibold px-4 py-2.5 rounded-full" data-filter="living">Living &amp; Additions</button>
+          </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonials-container">
+          
+          <!-- Testimonial 1 -->
+          <div class="testi-card appear appear-delay-1" data-category="kitchen">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-gold bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 rounded-full">
+                    Kitchen Remodel
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"A Breathtaking Culinary Space"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "Our kitchen feels like an entirely new home. The custom fluted island, soft-close dovetailed drawers, and lighting accents exceeded every expectation we held. The job site was spotless every evening."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/1.webp" alt="Olivia Carter" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Olivia Carter
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Seattle, WA · Nov 2025</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testi-card appear appear-delay-2" data-category="bath">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-sky-800 bg-sky-50 border border-sky-200/80 px-2.5 py-0.5 rounded-full">
+                    Master Bath
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"Spa Sanctuary in Our Home"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "The renovation team delivered a stunning master bathroom with bookmatched porcelain slab walls and floating double vanity. Everything was delivered on schedule without a single unexpected fee."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/2.webp" alt="Daniel Brooks" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Daniel Brooks
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Scottsdale, AZ · Dec 2025</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testi-card appear appear-delay-3" data-category="home">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-purple-800 bg-purple-50 border border-purple-200/80 px-2.5 py-0.5 rounded-full">
+                    Whole Home
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"Mastery From Start to Finish"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "Remodeling an entire 4,200 sq.ft home felt daunting until NEO Kitchens stepped in. Their project management app kept us updated on daily progress with photos and transparent milestone reviews."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/3.webp" alt="Sophia Turner" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Sophia Turner
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Denver, CO · Jan 2026</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testi-card appear appear-delay-4" data-category="living">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
+                    Interior Remodel
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"Exceeded Our Wildest Dreams"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "The architectural team conceptualized an open-concept living suite with integrated wine display and concealed acoustics. It has completely changed how our family spends evenings together."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/4.webp" alt="Michael Foster" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Michael Foster
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Nashville, TN · Dec 2025</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testi-card appear appear-delay-5" data-category="living">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 rounded-full">
+                    Home Addition
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"Precision and Craftsmanship"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "Every trim, custom skylight, and engineered timber beam was placed with surgical precision. Our home extension feels like it was designed by a world-class European architect."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/5.webp" alt="Emily Harrison" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Emily Harrison
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Charlotte, NC · Jan 2026</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="testi-card appear appear-delay-6" data-category="home">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-purple-800 bg-purple-50 border border-purple-200/80 px-2.5 py-0.5 rounded-full">
+                    Full Transformation
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"Completely Stress-Free Process"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "We had heard horror stories about renovations, but NEO Kitchens completely redefined the experience. Prompt responses, spotless cleanups, and a true design partnership throughout."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/6.webp" alt="James Walker" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      James Walker
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Portland, OR · Nov 2025</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 7 -->
+          <div class="testi-card appear appear-delay-1" data-category="living">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-teal-800 bg-teal-50 border border-teal-200/80 px-2.5 py-0.5 rounded-full">
+                    Family Suite
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"Flawless Architectural Blend"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "Our new family room extension blends indistinguishably into our 1920s architecture. Visitors constantly assume it was built with the original estate. Remarkable craftsmanship."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/7.webp" alt="Grace Bennett" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Grace Bennett
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">Austin, TX · Oct 2025</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 8 -->
+          <div class="testi-card appear appear-delay-2" data-category="kitchen">
+            <div class="bg-soft-cream/70 border border-stone-200/90 rounded-3xl p-8 h-full flex flex-col justify-between hover-lift">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-gold text-sm flex gap-1">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold tracking-wider uppercase text-gold bg-amber-50 border border-amber-200/80 px-2.5 py-0.5 rounded-full">
+                    Kitchen Remodel
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold text-stone-900 mb-3">"World-Class Cabinetry Quality"</h4>
+                <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                  "From solid American walnut interiors to motorized drawer slides, NEO Kitchens treats kitchen construction like fine Swiss watchmaking. We could not be prouder of our home."
+                </p>
+              </div>
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="images/testimonial/8.webp" alt="Ryan Mitchell" class="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm">
+                  <div>
+                    <div class="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                      Ryan Mitchell
+                      <i class="fa fa-circle-check text-emerald-600 text-xs" title="Verified Homeowner"></i>
+                    </div>
+                    <div class="text-stone-500 text-xs">San Diego, CA · Jan 2026</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-400">5.0 ★</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ===================================================
+         7. CLIENT EXPERIENCE FAQ SECTION (fixed overlap)
+    ==================================================== -->
+    <section class="section-pad bg-soft-cream border-t border-stone-200/70 no-overlap">
+      <div class="container max-w-4xl mx-auto">
+        <div class="text-center mb-14 appear appear-delay-1">
+          <span class="inline-block text-xs uppercase font-bold tracking-[0.2em] text-gold mb-2">COMMON INQUIRIES</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-stone-900">Client Experience &amp; Guarantees</h2>
+          <div class="deco-line my-3"></div>
+          <p class="text-stone-600">Transparent answers to what you can expect when partnering with NEO Kitchens.</p>
+        </div>
+
+        <div class="space-y-4 appear appear-delay-2">
+          
+          <!-- Accordion Item 1 -->
+          <div class="bg-white rounded-2xl border border-stone-200/80 p-6 transition shadow-sm hover:border-gold/60">
+            <details class="group cursor-pointer">
+              <summary class="flex items-center justify-between font-bold text-base sm:text-lg text-stone-900 list-none">
+                <span>How does NEO Kitchens maintain its 98.4% on-time delivery rate?</span>
+                <span class="text-gold text-lg transition-transform group-open:rotate-180">
+                  <i class="fa fa-chevron-down"></i>
+                </span>
+              </summary>
+              <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                We employ a dedicated in-house project manager for each residence and pre-order all long-lead materials (such as custom European cabinetry, slabs, and luxury appliances) before a single hammer swings. This guarantees zero downtime waiting on shipments once active demolition begins.
+              </div>
+            </details>
+          </div>
+
+          <!-- Accordion Item 2 -->
+          <div class="bg-white rounded-2xl border border-stone-200/80 p-6 transition shadow-sm hover:border-gold/60">
+            <details class="group cursor-pointer">
+              <summary class="flex items-center justify-between font-bold text-base sm:text-lg text-stone-900 list-none">
+                <span>Can I speak directly with past clients in my metropolitan area?</span>
+                <span class="text-gold text-lg transition-transform group-open:rotate-180">
+                  <i class="fa fa-chevron-down"></i>
+                </span>
+              </summary>
+              <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                Absolutely. Many of our satisfied homeowners participate in our Ambassador Circle and gladly invite serious prospective clients for private walk-throughs or telephone reference consultations. Simply let your design advisor know during your discovery session.
+              </div>
+            </details>
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="bg-white rounded-2xl border border-stone-200/80 p-6 transition shadow-sm hover:border-gold/60">
+            <details class="group cursor-pointer">
+              <summary class="flex items-center justify-between font-bold text-base sm:text-lg text-stone-900 list-none">
+                <span>What guarantees and post-completion warranties do you provide?</span>
+                <span class="text-gold text-lg transition-transform group-open:rotate-180">
+                  <i class="fa fa-chevron-down"></i>
+                </span>
+              </summary>
+              <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                Every custom kitchen and renovation is backed by our comprehensive 5-Year Craftsmanship Guarantee, along with manufacturer lifetime warranties on drawer glides, hinges, and premium cabinet finishes. We also conduct a complimentary 6-month and 12-month post-handover inspection to fine-tune alignments.
+              </div>
+            </details>
+          </div>
+
+          <!-- Accordion Item 4 -->
+          <div class="bg-white rounded-2xl border border-stone-200/80 p-6 transition shadow-sm hover:border-gold/60">
+            <details class="group cursor-pointer">
+              <summary class="flex items-center justify-between font-bold text-base sm:text-lg text-stone-900 list-none">
+                <span>How are daily construction cleanliness and family privacy managed?</span>
+                <span class="text-gold text-lg transition-transform group-open:rotate-180">
+                  <i class="fa fa-chevron-down"></i>
+                </span>
+              </summary>
+              <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-3">
+                We install airtight negative-air zip barriers, HEPA filtration units, and floor protection along all paths of transit. Our master trades adhere to strict noise curfews, background checks, and conduct daily end-of-shift sanitization.
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         8. HIGH-IMPACT CALL TO ACTION (fixed overlap)
+    ==================================================== -->
+    <section class="cta-section bg-warm-dark text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#c8a86e_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      <div class="container max-w-5xl mx-auto relative z-10 text-center appear appear-delay-1">
+        <span class="inline-block bg-white/10 text-gold text-xs uppercase tracking-[0.25em] font-semibold px-4 py-1.5 rounded-full mb-4">
+          YOUR JOURNEY BEGINS HERE
+        </span>
+        <h2 class="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+          Ready to Write Your Own<br>
+          <span class="text-gold font-serif italic font-normal">Transformation Story?</span>
+        </h2>
+        <p class="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-light">
+          Book your private design consultation today and discover how our architects and master cabinetmakers can turn your residential vision into enduring luxury.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="get-a-quote.html" class="btn-main fx-slide px-8 py-4 rounded-full bg-gold text-white font-medium hover:bg-amber-600 transition shadow-xl">
+            <span>Schedule Consultation</span>
+          </a>
+          <a href="projects.html" class="btn-outline-gold px-8 py-4 rounded-full text-white hover:bg-gold transition font-medium">
+            <span>Explore Our Portfolio</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         9. INTERACTIVE "SUBMIT A REVIEW" MODAL
+    ==================================================== -->
+    <div id="review-modal" class="review-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+      <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-stone-200 relative max-h-[90vh] overflow-y-auto">
+        <button type="button" id="close-modal-btn" class="absolute top-5 right-5 text-stone-400 hover:text-stone-900 text-xl transition">
+          <i class="fa fa-times"></i>
+        </button>
+
+        <div class="mb-6">
+          <span class="text-xs uppercase tracking-widest font-bold text-gold">CLIENT FEEDBACK</span>
+          <h3 class="text-2xl font-bold text-stone-900 mt-1">Share Your Experience</h3>
+          <p class="text-xs text-stone-500 mb-0">Your honest thoughts guide future homeowners and inspire our craftsmen.</p>
+        </div>
+
+        <form id="review-form" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">Your Rating</label>
+            <div class="star-picker flex gap-2 text-2xl text-stone-300" id="star-picker">
+              <i class="fa fa-star star-item active text-gold" data-value="1"></i>
+              <i class="fa fa-star star-item active text-gold" data-value="2"></i>
+              <i class="fa fa-star star-item active text-gold" data-value="3"></i>
+              <i class="fa fa-star star-item active text-gold" data-value="4"></i>
+              <i class="fa fa-star star-item active text-gold" data-value="5"></i>
+            </div>
+            <input type="hidden" id="rating-input" value="5">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1" for="reviewer-name">Full Name *</label>
+              <input type="text" id="reviewer-name" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-gold">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1" for="reviewer-city">Location (City, State) *</label>
+              <input type="text" id="reviewer-city" required placeholder="e.g. Manhattan, NY" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-gold">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1" for="reviewer-project">Project Type *</label>
+              <select id="reviewer-project" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-gold">
+                <option value="Kitchen Remodeling">Kitchen Remodeling</option>
+                <option value="Master Bathroom">Master Bathroom</option>
+                <option value="Whole Home Renovation">Whole Home Renovation</option>
+                <option value="Custom Millwork & Living">Custom Millwork &amp; Living</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1" for="reviewer-completion">Year of Completion</label>
+              <input type="text" id="reviewer-completion" placeholder="e.g. 2025" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-gold">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1" for="reviewer-headline">Review Headline *</label>
+            <input type="text" id="reviewer-headline" required placeholder="e.g. Flawless craftsmanship and remarkable team" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-gold">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1" for="reviewer-message">Detailed Review *</label>
+            <textarea id="reviewer-message" rows="4" required placeholder="Tell us about the design process, daily communication, and the finished results..." class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-gold"></textarea>
+          </div>
+
+          <div id="form-feedback" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium">
+            <i class="fa fa-circle-check me-1"></i> Thank you! Your testimonial has been submitted for editorial verification and will appear on this page shortly.
+          </div>
+
+          <div class="pt-2 flex justify-end gap-3">
+            <button type="button" id="cancel-modal-btn" class="px-5 py-2.5 rounded-full border border-stone-300 text-stone-600 text-xs font-semibold hover:bg-stone-100 transition">
+              Cancel
+            </button>
+            <button type="submit" id="submit-review-btn" class="px-6 py-2.5 rounded-full bg-gold text-white text-xs font-semibold hover:bg-amber-600 transition shadow">
+              Submit Review
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===================================================
+         10. VIDEO PREVIEW MODAL
+    ==================================================== -->
+    <div id="video-modal" class="review-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+      <div class="bg-stone-900 text-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-white/15 relative">
+        <button type="button" id="close-video-modal-btn" class="absolute top-4 right-4 text-white/60 hover:text-white text-xl transition">
+          <i class="fa fa-times"></i>
+        </button>
+        <div class="mb-4">
+          <span class="text-xs uppercase tracking-widest text-gold font-bold">HOMEOWNER WALKTHROUGH</span>
+          <h4 id="video-modal-title" class="text-xl font-bold text-white mt-1 mb-0">Modernist Residence Reveal</h4>
+          <p id="video-modal-client" class="text-xs text-white/60 mb-0">Featuring Marcus &amp; Elena Vance</p>
+        </div>
+        <div class="aspect-video bg-black rounded-2xl flex flex-col items-center justify-center p-6 text-center border border-white/10 relative overflow-hidden">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center text-gold text-2xl mb-3 border border-gold/40">
+            <i class="fa fa-film"></i>
+          </div>
+          <h5 class="text-white text-base font-bold mb-1">Cinematic Video Player</h5>
+          <p class="text-xs text-white/70 max-w-sm mb-4">Walkthrough simulation ready. In the live production deployment, this renders the 4K architectural reveal recording.</p>
+          <span class="inline-flex items-center gap-2 text-xs bg-white/10 px-4 py-2 rounded-full text-gold">
+            <i class="fa fa-circle-check"></i> High-Definition 4K Tour Available
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
+  <footer class="section-dark">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="col-lg-4 col-sm-6">
+          <img src="images/logo.jpeg" class="logo-footer" style="width: 130px; border-radius: 8px;" alt="NEO Kitchens">
+          <div class="spacer-20"></div>
+          <p class="text-stone-400 text-sm leading-relaxed">
+            NEO Kitchens is an architectural kitchen remodeling and whole-home renovation studio. We turn residential spaces into timeless, bespoke works of art through European engineering and master craftsmanship.
+          </p>
+          <div class="social-icons mb-sm-30">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <div class="widget">
+                <h2 class="hs-5">Explore</h2>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="projects.html">Projects</a></li>
+                  <li><a href="testimonials.html" class="text-gold">Testimonials</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <div class="widget">
+                <h2 class="hs-5">Our Services</h2>
+                <ul>
+                  <li><a href="services.html">Kitchen Remodeling</a></li>
+                  <li><a href="services.html">Bathroom Renovation</a></li>
+                  <li><a href="services.html">Whole Home Renovation</a></li>
+                  <li><a href="services.html">Living Suite Design</a></li>
+                  <li><a href="services.html">Architectural Additions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+          <div class="widget">
+            <div class="fw-bold text-white"><i class="icofont-clock-time me-2 id-color-2"></i>Working Hours</div>
+            Monday - Sat: 8:00 AM - 6:00 PM<br>
+            <div class="spacer-20"></div>
+            <div class="fw-bold text-white"><i class="icofont-location-pin me-2 id-color-2"></i>Design Studio</div>
+            100 S Main Street, New York, NY 10001
+            <div class="spacer-20"></div>
+            <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color-2"></i>Email Us</div>
+            contact@neokitchens.com
+            <div class="spacer-10"></div>
+            <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color-2"></i>Call Us</div>
+            +1 (800) 123-4567
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subfooter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="de-flex">
+              <div class="de-flex-col">Copyright &copy; 2026 NEO Kitchens. All Rights Reserved.</div>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Terms &amp; Conditions</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Javascript Files -->
+  <script src="js/vendors.js"></script>
+  <script src="js/designesia.js"></script>
+  <script src="js/swiper.js"></script>
+
+  <!-- Interactive Logic & Appearance Intersection Observer -->
+  <script>
+    (function() {
+      // 1. Appearance Animation via Intersection Observer
+      const appears = document.querySelectorAll('.appear');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+      appears.forEach(el => observer.observe(el));
+
+      // Trigger hero immediately
+      document.querySelectorAll('.hero-full .appear').forEach(el => el.classList.add('visible'));
+
+      // 2. Interactive Category Filter
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.testi-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          const filter = this.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('is-hidden');
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 40);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(15px)';
+              setTimeout(() => {
+                card.classList.add('is-hidden');
+              }, 300);
+            }
+          });
+        });
+      });
+
+      // 3. Review Submission Modal Logic
+      const modal = document.getElementById('review-modal');
+      const openBtn = document.getElementById('open-review-btn');
+      const closeBtn = document.getElementById('close-modal-btn');
+      const cancelBtn = document.getElementById('cancel-modal-btn');
+      const reviewForm = document.getElementById('review-form');
+      const formFeedback = document.getElementById('form-feedback');
+
+      function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+
+      // Star Picker inside Review Modal
+      const starItems = document.querySelectorAll('#star-picker .star-item');
+      const ratingInput = document.getElementById('rating-input');
+
+      starItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const val = parseInt(this.getAttribute('data-value'), 10);
+          ratingInput.value = val;
+          starItems.forEach(s => {
+            const sVal = parseInt(s.getAttribute('data-value'), 10);
+            if (sVal <= val) {
+              s.classList.remove('text-stone-300');
+              s.classList.add('text-gold');
+            } else {
+              s.classList.remove('text-gold');
+              s.classList.add('text-stone-300');
+            }
+          });
+        });
+      });
+
+      if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          formFeedback.classList.remove('hidden');
+          const submitBtn = document.getElementById('submit-review-btn');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-1"></i> Submitting...';
+
+          setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fa fa-check me-1"></i> Submitted!';
+            setTimeout(() => {
+              closeModal();
+              reviewForm.reset();
+              formFeedback.classList.add('hidden');
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Submit Review';
+            }, 1800);
+          }, 800);
+        });
+      }
+
+      // 4. Video Modal Logic
+      const videoModal = document.getElementById('video-modal');
+      const closeVideoBtn = document.getElementById('close-video-modal-btn');
+      const videoTitle = document.getElementById('video-modal-title');
+      const videoClient = document.getElementById('video-modal-client');
+
+      document.querySelectorAll('.video-play-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const title = this.getAttribute('data-title') || 'Client Reveal';
+          const client = this.getAttribute('data-client') || '';
+          videoTitle.textContent = title;
+          videoClient.textContent = 'Featuring ' + client;
+          videoModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      if (closeVideoBtn) {
+        closeVideoBtn.addEventListener('click', function() {
+          videoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+
+      videoModal.addEventListener('click', function(e) {
+        if (e.target === videoModal) {
+          videoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Escape key to close any active modal
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+          if (videoModal.classList.contains('active')) {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

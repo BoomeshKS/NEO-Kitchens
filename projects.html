@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NEO Kitchens · Our Projects & Portfolio</title>
+  <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="NEO Kitchens Project Portfolio – Luxury kitchen remodels, bespoke bathrooms, and complete home transformations" name="keywords">
+  <meta content="NEO Kitchens" name="author">
+
+  <!-- CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+  <link href="css/plugins.css" rel="stylesheet" type="text/css">
+  <link href="css/swiper.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/coloring.css" rel="stylesheet" type="text/css">
+  <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background: #fcfaf7; }
+    .section-pad { padding: 80px 0; }
+    .text-gold { color: #c8a86e; }
+    .border-gold { border-color: #c8a86e; }
+    .bg-soft-cream { background-color: #f8f5f0; }
+    .shadow-soft { box-shadow: 0 15px 40px -10px rgba(0,0,0,0.08); }
+    .gradient-gold { background: linear-gradient(135deg, #c8a86e 0%, #b8925a 100%); }
+    .btn-outline-gold { border: 2px solid #c8a86e; color: #1e1c18; transition: all 0.3s; }
+    .btn-outline-gold:hover { background: #c8a86e; color: #fff; }
+    .stat-number { font-size: 3.2rem; font-weight: 600; line-height: 1.1; }
+    .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.14); }
+    .deco-line { width: 50px; height: 3px; background: #c8a86e; display: inline-block; border-radius: 4px; }
+
+    /* full-page cinematic hero */
+    .hero-full {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: #1e1c18;
+    }
+    .hero-full .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+    .hero-full .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.25) 0%, rgba(20,18,15,0.78) 90%);
+    }
+    .hero-full .hero-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    /* appearance effect (fade + slide) */
+    .appear {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+    .appear.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .appear-delay-1 { transition-delay: 0.05s; }
+    .appear-delay-2 { transition-delay: 0.15s; }
+    .appear-delay-3 { transition-delay: 0.25s; }
+    .appear-delay-4 { transition-delay: 0.35s; }
+    .appear-delay-5 { transition-delay: 0.45s; }
+    .appear-delay-6 { transition-delay: 0.55s; }
+
+    /* project filter tabs */
+    .filter-btn {
+      transition: all 0.25s ease;
+      color: #64748b;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+    .filter-btn:hover {
+      color: #1e1c18;
+      border-color: #c8a86e;
+    }
+    .filter-btn.active {
+      background: #1e1c18;
+      color: #ffffff;
+      border-color: #1e1c18;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    /* project item card transitions */
+    .project-card {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .project-card.is-hidden {
+      display: none;
+    }
+
+    .project-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .project-img-wrapper img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-lift:hover .project-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    /* process step style matching about.html */
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      background: white;
+      transition: all 0.3s ease;
+    }
+    .process-step:hover {
+      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+    .process-step .step-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #c8a86e;
+      line-height: 1;
+      min-width: 60px;
+      opacity: 0.6;
+    }
+    .process-step .step-content h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .process-step .step-content p {
+      color: #555;
+      margin-bottom: 0;
+    }
+    @media (max-width: 640px) {
+      .process-step { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem; }
+      .process-step .step-number { min-width: auto; }
+    }
+
+    /* Quick View Modal */
+    .project-modal {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .project-modal.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .project-modal:not(.active) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (transparent, floating) -->
+  <header class="transparent header-light header-float">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header-inner">
+            <div class="de-flex sm-pt10">
+              <div class="de-flex-col">
+                <!-- logo begin -->
+                <div id="logo">
+                  <a href="index.html">
+                    <img class="logo-main" style="width: 120px;" src="images/logo.jpeg" alt="NEO Kitchens">
+                    <img class="logo-scroll" src="images/logo.jpeg" alt="NEO Kitchens">
+                    <img class="logo-mobile" src="images/logo.jpeg" alt="NEO Kitchens">
+                  </a>
+                </div>
+                <!-- logo end -->
+              </div>
+              <div class="de-flex-col header-col-mid">
+                <!-- mainmenu begin -->
+                <ul id="mainmenu">
+                  <li><a class="menu-item" href="index.html">Home</a></li>
+                  <li><a class="menu-item" href="about.html">About Us</a></li>
+                  <li><a class="menu-item" href="services.html">Services</a></li>
+                  <li><a class="menu-item active text-gold" href="projects.html">Projects</a></li>
+                  <li><a class="menu-item" href="testimonials.html">Testimonials</a></li>
+                  <li><a class="menu-item" href="contact.html">Contact</a></li>
+                </ul>
+                <!-- mainmenu end -->
+              </div>
+              <div class="de-flex-col">
+                <div class="menu_side_area">
+                  <a href="get-a-quote.html" class="btn-main fx-slide"><span>Get a Quote</span></a>
+                  <span id="menu-btn"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <a href="#" id="back-to-top"></a>
+    <div id="de-loader"></div>
+
+    <!-- ===== FULL-PAGE HERO ===== -->
+    <section class="hero-full jarallax">
+      <img src="images/background/2.webp" class="hero-bg jarallax-img" alt="NEO Kitchens projects showcase">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="row">
+          <div class="col-lg-9">
+            <span class="inline-block bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.2em] px-4 py-1.5 rounded-full mb-4 appear appear-delay-1">
+              OUR PORTFOLIO &amp; RECENT WORK
+            </span>
+            <h1 class="text-white text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4 appear appear-delay-2">
+              Architectural elegance,<br>crafted without compromise.
+            </h1>
+            <p class="text-white/85 text-lg md:text-xl max-w-2xl appear appear-delay-3 font-light">
+              Explore our handpicked curation of bespoke kitchens, opulent master suites, and whole-home architectural renovations engineered to stand the test of time.
+            </p>
+          </div>
+        </div>
+        <ul class="crumb flex items-center gap-2 text-white/70 text-sm mt-6 appear appear-delay-4">
+          <li><a href="index.html" class="text-white/60 hover:text-white transition">Home</a></li>
+          <li class="text-white/30">/</li>
+          <li class="active text-white font-medium">Projects</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO STATS ===== -->
+    <section class="section-pad bg-soft-cream border-b border-stone-200/60">
+      <div class="container max-w-6xl mx-auto">
+        <div class="row text-center">
+          <div class="col-6 col-md-3 mb-6 md:mb-0 appear appear-delay-1">
+            <div class="stat-number text-gold">280+</div>
+            <p class="text-gray-700 font-medium">Delivered Projects</p>
+          </div>
+          <div class="col-6 col-md-3 mb-6 md:mb-0 appear appear-delay-2">
+            <div class="stat-number text-gold">12+</div>
+            <p class="text-gray-700 font-medium">Years of Mastery</p>
+          </div>
+          <div class="col-6 col-md-3 mb-6 md:mb-0 appear appear-delay-3">
+            <div class="stat-number text-gold">98%</div>
+            <p class="text-gray-700 font-medium">Client Recommendation</p>
+          </div>
+          <div class="col-6 col-md-3 mb-6 md:mb-0 appear appear-delay-4">
+            <div class="stat-number text-gold">100%</div>
+            <p class="text-gray-700 font-medium">On-Time Handover</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT FILTER & GALLERY GRID ===== -->
+    <section class="section-pad bg-white" id="portfolio">
+      <div class="container max-w-7xl mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+          <span class="subtitle appear">Featured Portfolio</span>
+          <h2 class="text-4xl md:text-5xl font-bold appear appear-delay-1">Signature transformations</h2>
+          <div class="deco-line mx-auto mt-3 appear appear-delay-2"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto mt-4 text-base md:text-lg appear appear-delay-3">
+            Each space is an individualized study in harmonious proportions, tailored ergonomics, and custom artisanal craftsmanship.
+          </p>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12 appear appear-delay-2">
+          <button type="button" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-sm" data-filter="all">
+            All Projects <span class="ml-1 opacity-70">(6)</span>
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-sm" data-filter="kitchen">
+            Kitchen Remodels <span class="ml-1 opacity-70">(2)</span>
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-sm" data-filter="bathroom">
+            Luxury Baths <span class="ml-1 opacity-70">(1)</span>
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-sm" data-filter="full-home">
+            Whole Home <span class="ml-1 opacity-70">(1)</span>
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-sm" data-filter="living">
+            Living Suites <span class="ml-1 opacity-70">(1)</span>
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-sm" data-filter="exterior">
+            Exteriors &amp; Additions <span class="ml-1 opacity-70">(1)</span>
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="row g-4" id="projects-grid">
+
+          <!-- Project 1: Kitchen -->
+          <div class="col-lg-4 col-md-6 project-card" data-category="kitchen">
+            <div class="bg-soft-cream p-5 rounded-3 hover-lift h-full flex flex-col justify-between border border-stone-100 appear appear-delay-1">
+              <div>
+                <div class="project-img-wrapper mb-4 shadow-soft">
+                  <img src="images/projects/1.webp" class="w-100 h-64 object-cover" alt="The Belmont Modern Kitchen">
+                  <span class="absolute top-3 left-3 bg-[#1e1c18]/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Kitchen Remodel
+                  </span>
+                  <button type="button" class="quick-view-btn absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-900 text-xs font-medium px-3 py-1.5 rounded-lg backdrop-blur-md shadow transition flex items-center gap-1.5"
+                    data-title="The Belmont Modern Kitchen"
+                    data-category="Kitchen Remodel"
+                    data-location="Seattle, WA"
+                    data-duration="6 Weeks"
+                    data-img="images/projects/1.webp"
+                    data-materials="Bookmatched American Walnut, Calacatta Gold Quartz, Integrated Miele Suite, Under-Cabinet Ambient Luminescence"
+                    data-desc="A premier culinary environment curated for passionate entertaining. Features bespoke hand-finished walnut cabinetry, a seamless 11-foot waterfall quartz island, flush induction cooktop, and custom wine display.">
+                    <span>Quick View</span>
+                    <i class="fa fa-expand text-[10px] text-gold"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+                  <span class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Seattle, WA</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> 6 Weeks Duration</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 hover:text-gold transition">
+                  The Belmont Modern Kitchen
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Full culinary transformation highlighting bookmatched walnut cabinetry, Calacatta quartz waterfall counters, and integrated concealed appliances.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Custom Walnut</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Waterfall Island</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Smart Appliances</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-stone-200/70 flex items-center justify-between">
+                <a href="get-a-quote.html" class="text-sm font-semibold text-[#1e1c18] hover:text-gold transition flex items-center gap-1">
+                  Inquire For Similar Space <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Bathroom -->
+          <div class="col-lg-4 col-md-6 project-card" data-category="bathroom">
+            <div class="bg-soft-cream p-5 rounded-3 hover-lift h-full flex flex-col justify-between border border-stone-100 appear appear-delay-2">
+              <div>
+                <div class="project-img-wrapper mb-4 shadow-soft">
+                  <img src="images/projects/2.webp" class="w-100 h-64 object-cover" alt="Sonoran Oasis Master Bath">
+                  <span class="absolute top-3 left-3 bg-[#1e1c18]/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Luxury Bath
+                  </span>
+                  <button type="button" class="quick-view-btn absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-900 text-xs font-medium px-3 py-1.5 rounded-lg backdrop-blur-md shadow transition flex items-center gap-1.5"
+                    data-title="Sonoran Oasis Master Bath"
+                    data-category="Luxury Bathroom"
+                    data-location="Scottsdale, AZ"
+                    data-duration="4 Weeks"
+                    data-img="images/projects/2.webp"
+                    data-materials="Honed Terrazzo, Fluted White Oak Vanities, Brushed Champagne Bronze, Dual Thermostatic Rain Showers"
+                    data-desc="Inspired by boutique wellness resorts, this master bath incorporates a monolithic freestanding soaking tub, frameless fluted glass enclosure, radiant heated floors, and custom LED cove niches.">
+                    <span>Quick View</span>
+                    <i class="fa fa-expand text-[10px] text-gold"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+                  <span class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Scottsdale, AZ</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> 4 Weeks Duration</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 hover:text-gold transition">
+                  Sonoran Oasis Master Bath
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  A serene sanctuary boasting a freestanding oval soaking tub, fluted white oak double vanity, and dual thermostatic rain shower experience.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Soaking Tub</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Heated Terrazzo</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Champagne Bronze</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-stone-200/70 flex items-center justify-between">
+                <a href="get-a-quote.html" class="text-sm font-semibold text-[#1e1c18] hover:text-gold transition flex items-center gap-1">
+                  Inquire For Similar Space <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Full Home -->
+          <div class="col-lg-4 col-md-6 project-card" data-category="full-home">
+            <div class="bg-soft-cream p-5 rounded-3 hover-lift h-full flex flex-col justify-between border border-stone-100 appear appear-delay-3">
+              <div>
+                <div class="project-img-wrapper mb-4 shadow-soft">
+                  <img src="images/projects/3.webp" class="w-100 h-64 object-cover" alt="The Aspen Ridge Full Estate">
+                  <span class="absolute top-3 left-3 bg-[#1e1c18]/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Whole Home
+                  </span>
+                  <button type="button" class="quick-view-btn absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-900 text-xs font-medium px-3 py-1.5 rounded-lg backdrop-blur-md shadow transition flex items-center gap-1.5"
+                    data-title="The Aspen Ridge Full Estate"
+                    data-category="Whole Home Renovation"
+                    data-location="Denver, CO"
+                    data-duration="16 Weeks"
+                    data-img="images/projects/3.webp"
+                    data-materials="Wide-Plank European Oak, Architectural Steel Glass Partitions, Stone Hearth Fireplace, Smart Home Automation"
+                    data-desc="Complete 4,200 sq ft structural overhaul creating continuous airy sightlines, modernizing the structural envelope, and harmonizing kitchen, dining, and gallery rooms with warm organic minimalism.">
+                    <span>Quick View</span>
+                    <i class="fa fa-expand text-[10px] text-gold"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+                  <span class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Denver, CO</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> 16 Weeks Duration</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 hover:text-gold transition">
+                  The Aspen Ridge Full Estate
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Multi-level gut renovation uniting open living pavilions, custom steel architectural stairs, European oak floors, and panoramic view windows.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Open-Concept</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">European Oak</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Structural Steel</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-stone-200/70 flex items-center justify-between">
+                <a href="get-a-quote.html" class="text-sm font-semibold text-[#1e1c18] hover:text-gold transition flex items-center gap-1">
+                  Inquire For Similar Space <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Living Suite -->
+          <div class="col-lg-4 col-md-6 project-card" data-category="living">
+            <div class="bg-soft-cream p-5 rounded-3 hover-lift h-full flex flex-col justify-between border border-stone-100 appear appear-delay-1">
+              <div>
+                <div class="project-img-wrapper mb-4 shadow-soft">
+                  <img src="images/projects/4.webp" class="w-100 h-64 object-cover" alt="Vanderbilt Custom Living Suite">
+                  <span class="absolute top-3 left-3 bg-[#1e1c18]/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Living Suite
+                  </span>
+                  <button type="button" class="quick-view-btn absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-900 text-xs font-medium px-3 py-1.5 rounded-lg backdrop-blur-md shadow transition flex items-center gap-1.5"
+                    data-title="Vanderbilt Custom Living Suite"
+                    data-category="Living Suite Remodel"
+                    data-location="Nashville, TN"
+                    data-duration="3 Weeks"
+                    data-img="images/projects/4.webp"
+                    data-materials="Acoustic Slatted White Oak, Linear Vapor Fireplace, Concealed Cabling Channels, Architectural Track Lighting"
+                    data-desc="A contemporary family living room reinvented with built-in custom media joinery, integrated acoustic sound baffle walling, and cozy linear fireplace framed by honed porcelain tiles.">
+                    <span>Quick View</span>
+                    <i class="fa fa-expand text-[10px] text-gold"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+                  <span class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Nashville, TN</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> 3 Weeks Duration</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 hover:text-gold transition">
+                  Vanderbilt Custom Living Suite
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Contemporary living salon featuring floor-to-ceiling slatted oak acoustic accent walls, linear fire ribbon, and bespoke entertainment millwork.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Acoustic Slatting</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Linear Hearth</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Custom Millwork</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-stone-200/70 flex items-center justify-between">
+                <a href="get-a-quote.html" class="text-sm font-semibold text-[#1e1c18] hover:text-gold transition flex items-center gap-1">
+                  Inquire For Similar Space <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Kitchen (Second Featured Kitchen) -->
+          <div class="col-lg-4 col-md-6 project-card" data-category="kitchen">
+            <div class="bg-soft-cream p-5 rounded-3 hover-lift h-full flex flex-col justify-between border border-stone-100 appear appear-delay-2">
+              <div>
+                <div class="project-img-wrapper mb-4 shadow-soft">
+                  <img src="images/projects/5.webp" class="w-100 h-64 object-cover" alt="Providence Sunlit Chef's Kitchen">
+                  <span class="absolute top-3 left-3 bg-[#1e1c18]/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Kitchen Remodel
+                  </span>
+                  <button type="button" class="quick-view-btn absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-900 text-xs font-medium px-3 py-1.5 rounded-lg backdrop-blur-md shadow transition flex items-center gap-1.5"
+                    data-title="Providence Sunlit Chef's Kitchen"
+                    data-category="Kitchen Remodel"
+                    data-location="Charlotte, NC"
+                    data-duration="12 Weeks"
+                    data-img="images/projects/5.webp"
+                    data-materials="Matte Charcoal Cabinetry, Taj Mahal Quartzite, Double-Thickness Island, Brass Linear Chandelier"
+                    data-desc="Designed for avid culinary hosts, featuring double ovens, a hidden prep scullery pantry, custom brass bar pulls, and a grand 14-foot Taj Mahal quartzite island with recessed bar seating.">
+                    <span>Quick View</span>
+                    <i class="fa fa-expand text-[10px] text-gold"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+                  <span class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Charlotte, NC</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> 12 Weeks Duration</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 hover:text-gold transition">
+                  Providence Sunlit Chef's Kitchen
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Seamless architectural kitchen wing expansion offering oversized quartzite prep surfaces, walk-in concealed butler's pantry, and radiant skylights.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Taj Mahal Quartzite</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Butler's Pantry</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Matte Charcoal</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-stone-200/70 flex items-center justify-between">
+                <a href="get-a-quote.html" class="text-sm font-semibold text-[#1e1c18] hover:text-gold transition flex items-center gap-1">
+                  Inquire For Similar Space <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Exterior & Facade -->
+          <div class="col-lg-4 col-md-6 project-card" data-category="exterior">
+            <div class="bg-soft-cream p-5 rounded-3 hover-lift h-full flex flex-col justify-between border border-stone-100 appear appear-delay-3">
+              <div>
+                <div class="project-img-wrapper mb-4 shadow-soft">
+                  <img src="images/projects/6.webp" class="w-100 h-64 object-cover" alt="The Skyline Nordic Facade">
+                  <span class="absolute top-3 left-3 bg-[#1e1c18]/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Exterior &amp; Facade
+                  </span>
+                  <button type="button" class="quick-view-btn absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-900 text-xs font-medium px-3 py-1.5 rounded-lg backdrop-blur-md shadow transition flex items-center gap-1.5"
+                    data-title="The Skyline Nordic Facade"
+                    data-category="Exterior & Addition"
+                    data-location="Portland, OR"
+                    data-duration="5 Weeks"
+                    data-img="images/projects/6.webp"
+                    data-materials="Shou Sugi Ban Charred Timber, Standing Seam Matte Zinc, Thermal Low-E Glazing, Architectural Porch Soffits"
+                    data-desc="A striking exterior overhaul converting an outdated 1980s facade into a striking Scandinavian architectural showpiece with Japanese charred cedar and integrated exterior LED lighting strips.">
+                    <span>Quick View</span>
+                    <i class="fa fa-expand text-[10px] text-gold"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+                  <span class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Portland, OR</span>
+                  <span>•</span>
+                  <span class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> 5 Weeks Duration</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-2 hover:text-gold transition">
+                  The Skyline Nordic Facade
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                  Full facade reimagination combining black vertical metal siding, warm Japanese charred cedar soffits, and custom modern entry portal.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-1.5 mb-5">
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Charred Timber</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Standing Seam</span>
+                  <span class="bg-white text-stone-700 text-xs px-2.5 py-1 rounded-md border border-stone-200">Modern Entry</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-stone-200/70 flex items-center justify-between">
+                <a href="get-a-quote.html" class="text-sm font-semibold text-[#1e1c18] hover:text-gold transition flex items-center gap-1">
+                  Inquire For Similar Space <i class="fa fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BEFORE & AFTER TRANSFORMATION SPOTLIGHT ===== -->
+    <section class="section-pad bg-soft-cream border-t border-b border-stone-200/60" id="before-after">
+      <div class="container max-w-6xl mx-auto px-4">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <div class="subtitle appear">Real Results</div>
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight appear appear-delay-1">
+              From outdated to <span class="text-gold">extraordinary</span>
+            </h2>
+            <div class="deco-line my-4 appear appear-delay-2"></div>
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-4 appear appear-delay-2">
+              Slide back and forth to experience how thoughtful architectural reimagining and bespoke cabinetry elevate spaces from cramped and dark to open, luminous culinary sanctuaries.
+            </p>
+
+            <div class="space-y-3 mb-6 appear appear-delay-3">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full gradient-gold text-white flex items-center justify-center text-xs mt-0.5">✓</span>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-base mb-0.5">Load-Bearing Wall Removal</h4>
+                  <p class="text-gray-600 text-sm">Converted a segmented compartmentalized layout into an expansive great-room floorplan.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full gradient-gold text-white flex items-center justify-center text-xs mt-0.5">✓</span>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-base mb-0.5">Custom Solid Core Joinery</h4>
+                  <p class="text-gray-600 text-sm">German soft-close drawer runners, interior oak dividers, and integrated pantry pullouts.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full gradient-gold text-white flex items-center justify-center text-xs mt-0.5">✓</span>
+                <div>
+                  <h4 class="font-semibold text-gray-900 text-base mb-0.5">Tri-Zone Layered Lighting</h4>
+                  <p class="text-gray-600 text-sm">Balanced task spotlights, warm under-shelf glow, and sculptural pendant focal points.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="get-a-quote.html" class="btn-main fx-slide appear appear-delay-4">
+              <span>Start Your Transformation</span>
+            </a>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="bg-white p-3 md:p-4 rounded-3 shadow-soft border border-stone-200/80 appear appear-delay-2">
+              <div class="twentytwenty-container rounded-2 overflow-hidden shadow-sm" style="min-height: 380px;">
+                <img src="images/before-after/1b.webp" alt="Kitchen Before Remodeling" class="w-100 object-cover">
+                <img src="images/before-after/1a.webp" alt="Kitchen After NEO Kitchens Remodel" class="w-100 object-cover">
+              </div>
+              <div class="flex justify-between items-center px-3 pt-3 text-xs text-stone-500 font-medium">
+                <span>◀ Slide Left: Outdated Original</span>
+                <span class="text-gold font-semibold">Bellevue Heritage Residence</span>
+                <span>Slide Right: NEO Kitchens Result ▶</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW WE DELIVER (PROJECT PROCESS) ===== -->
+    <section class="section-pad bg-white">
+      <div class="container max-w-5xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <span class="subtitle appear">Execution Standards</span>
+          <h2 class="text-4xl md:text-5xl font-bold appear appear-delay-1">How your project comes to life</h2>
+          <div class="deco-line mx-auto mt-3 appear appear-delay-2"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto mt-4 appear appear-delay-3">
+            Every renovation is guided by dedicated project directors, certified master tradespeople, and rigorous quality inspection gateways.
+          </p>
+        </div>
+
+        <div class="space-y-5">
+          <!-- Step 1 -->
+          <div class="process-step appear appear-delay-2">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h4>Spatial Study &amp; Photorealistic 3D Concept</h4>
+              <p>We measure and laser-scan your current rooms, crafting accurate 3D architectural models so you can walk through materials, finishes, and lighting before construction commences.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="process-step appear appear-delay-3">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h4>Artisanal Material Curation &amp; Fixed Bidding</h4>
+              <p>Together we select premium slabs, custom wood stains, and commercial-grade hardware with 100% transparent itemized pricing — zero surprise change orders.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="process-step appear appear-delay-4">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h4>White-Glove Construction &amp; Daily Milestones</h4>
+              <p>Our clean-site protocol protects adjoining rooms with HEPA air filtration and floor guards. You receive weekly progress updates via our dedicated client portal.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="process-step appear appear-delay-5">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h4>The 100-Point Inspection &amp; 10-Year Warranty</h4>
+              <p>Before handover, our quality control team completes a rigorous 100-point punch list review alongside you, backed by our industry-leading craftsmanship warranty.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10 appear appear-delay-5">
+          <a href="get-a-quote.html" class="btn-main fx-slide"><span>Schedule a Project Consultation</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL QUOTE ===== -->
+    <section class="section-pad bg-soft-cream border-t border-b border-stone-200/60">
+      <div class="container max-w-4xl mx-auto text-center px-4">
+        <span class="d-stars id-color text-2xl tracking-widest block mb-4 appear">★★★★★</span>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-light italic text-gray-800 leading-relaxed appear appear-delay-1">
+          “NEO Kitchens executed our custom kitchen and dining renovation with absolute perfection. From the bookmatched grain on the walnut cabinets to finishing three days ahead of schedule, they are truly in a league of their own.”
+        </h3>
+        <div class="mt-6 appear appear-delay-2">
+          <span class="block font-bold text-gray-900 text-lg">— David &amp; Victoria Harrison</span>
+          <span class="text-stone-500 text-sm">Belmont Kitchen Remodel · Completed Fall 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CALL TO ACTION ===== -->
+    <section class="section-pad bg-white">
+      <div class="container max-w-4xl mx-auto text-center px-4">
+        <h2 class="text-3xl md:text-5xl font-bold appear appear-delay-1">Have an ambitious project in mind?</h2>
+        <p class="text-lg text-gray-600 mt-3 max-w-2xl mx-auto appear appear-delay-2">
+          Let’s discuss your vision. Whether you are seeking a full culinary overhaul or an entire residence modernization, our design studio is ready to collaborate.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4 justify-center appear appear-delay-3">
+          <a href="contact.html" class="btn-outline-gold px-8 py-3 rounded-full inline-block font-medium">
+            Contact our designers
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== QUICK VIEW MODAL ===== -->
+  <div id="project-modal" class="project-modal fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative transform transition-all duration-300 max-h-[90vh] flex flex-col">
+      <!-- Modal Close Button -->
+      <button id="modal-close" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-stone-800 flex items-center justify-center shadow transition text-lg">
+        ✕
+      </button>
+
+      <div class="overflow-y-auto p-6 md:p-8">
+        <div class="rounded-xl overflow-hidden mb-6 relative">
+          <img id="modal-img" src="" alt="Project Image" class="w-full h-80 object-cover">
+          <span id="modal-badge" class="absolute top-4 left-4 bg-[#1e1c18]/90 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2 font-medium">
+          <span id="modal-location" class="flex items-center gap-1"><i class="fa fa-map-marker text-gold"></i> Location</span>
+          <span>•</span>
+          <span id="modal-duration" class="flex items-center gap-1"><i class="fa fa-clock-o text-gold"></i> Duration</span>
+        </div>
+
+        <h3 id="modal-title" class="text-3xl font-bold text-gray-900 mb-3">Project Title</h3>
+        
+        <div class="deco-line mb-4"></div>
+
+        <p id="modal-desc" class="text-gray-600 text-base leading-relaxed mb-6">
+          Detailed project description will be inserted here dynamically.
+        </p>
+
+        <div class="bg-soft-cream p-4 rounded-xl mb-6">
+          <h5 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 text-gold">
+            Architectural &amp; Material Specifications
+          </h5>
+          <p id="modal-materials" class="text-sm text-gray-700 mb-0 font-medium leading-relaxed"></p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 items-center justify-between pt-4 border-t border-stone-200">
+          <div class="text-xs text-stone-500">
+            Backed by NEO Kitchens 10-Year Craftsmanship Guarantee
+          </div>
+          <a href="get-a-quote.html" class="btn-main fx-slide">
+            <span>Inquire About This Space</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="section-dark">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="col-lg-4 col-sm-6">
+          <img src="images/logo-white.webp" onerror="this.src='images/logo.jpeg'; this.style.width='130px'; this.style.borderRadius='6px';" class="logo-footer" alt="NEO Kitchens">
+          <div class="spacer-20"></div>
+          <p>
+            We specialize in bespoke culinary environments, master bathrooms, and whole-home architectural renovations, delivering exceptional craftsmanship and reliable project management.
+          </p>
+          <div class="social-icons mb-sm-30">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <div class="widget">
+                <h2 class="hs-5">Company</h2>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="services.html">Our Services</a></li>
+                  <li><a href="projects.html">Projects</a></li>
+                  <li><a href="testimonials.html">Testimonials</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <div class="widget">
+                <h2 class="hs-5">Our Services</h2>
+                <ul>
+                  <li><a href="services.html">Kitchen Remodeling</a></li>
+                  <li><a href="services.html">Bathroom Renovation</a></li>
+                  <li><a href="services.html">Whole Home Renovation</a></li>
+                  <li><a href="services.html">Living Suite Design</a></li>
+                  <li><a href="services.html">Architectural Additions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+          <div class="widget">
+            <div class="fw-bold text-white"><i class="icofont-clock-time me-2 id-color-2"></i>Working Hours</div>
+            Monday - Sat: 8:00 AM - 6:00 PM<br>
+            <div class="spacer-20"></div>
+            <div class="fw-bold text-white"><i class="icofont-location-pin me-2 id-color-2"></i>Design Studio</div>
+            100 S Main Street, New York, NY 10001
+            <div class="spacer-20"></div>
+            <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color-2"></i>Email Us</div>
+            contact@neokitchens.com
+            <div class="spacer-10"></div>
+            <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color-2"></i>Call Us</div>
+            +1 (800) 123-4567
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subfooter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="de-flex">
+              <div class="de-flex-col">Copyright &copy; 2026 NEO Kitchens. All Rights Reserved.</div>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Terms &amp; Conditions</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Javascript Files -->
+  <script src="js/vendors.js"></script>
+  <script src="js/designesia.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/jquery.twentytwenty.js"></script>
+  <script src="js/jquery.event.move.js"></script>
+  <script src="js/custom-twentytwenty.js"></script>
+
+  <!-- Interactive Project Logic & Intersection Observer -->
+  <script>
+    (function() {
+      // 1. Appearance effect (Intersection Observer)
+      const appears = document.querySelectorAll('.appear');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+      appears.forEach(el => observer.observe(el));
+
+      // Trigger immediately for hero
+      document.querySelectorAll('.hero-full .appear').forEach(el => el.classList.add('visible'));
+
+      // 2. Interactive Category Filter
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          const category = this.getAttribute('data-filter');
+
+          projectCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (category === 'all' || cardCat === category) {
+              card.classList.remove('is-hidden');
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(15px)';
+              setTimeout(() => {
+                card.classList.add('is-hidden');
+              }, 300);
+            }
+          });
+        });
+      });
+
+      // 3. Quick View Modal Functionality
+      const modal = document.getElementById('project-modal');
+      const modalClose = document.getElementById('modal-close');
+      const modalImg = document.getElementById('modal-img');
+      const modalBadge = document.getElementById('modal-badge');
+      const modalTitle = document.getElementById('modal-title');
+      const modalLocation = document.getElementById('modal-location');
+      const modalDuration = document.getElementById('modal-duration');
+      const modalDesc = document.getElementById('modal-desc');
+      const modalMaterials = document.getElementById('modal-materials');
+
+      document.querySelectorAll('.quick-view-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          modalImg.src = this.getAttribute('data-img');
+          modalBadge.textContent = this.getAttribute('data-category');
+          modalTitle.textContent = this.getAttribute('data-title');
+          modalLocation.innerHTML = '<i class="fa fa-map-marker text-gold"></i> ' + this.getAttribute('data-location');
+          modalDuration.innerHTML = '<i class="fa fa-clock-o text-gold"></i> ' + this.getAttribute('data-duration');
+          modalDesc.textContent = this.getAttribute('data-desc');
+          modalMaterials.textContent = this.getAttribute('data-materials');
+
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NEO Kitchens · Services</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="NEO Kitchens – custom kitchen design, renovation & remodeling" name="keywords">
+    <meta content="NEO Kitchens" name="author">
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/coloring.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { background: #fcfaf7; }
+        .text-gold { color: #c8a86e; }
+        .bg-soft-cream { background-color: #f8f5f0; }
+        .shadow-soft { box-shadow: 0 15px 40px -10px rgba(0,0,0,0.08); }
+        .hover-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .hover-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); }
+        .deco-line { width: 50px; height: 3px; background: #c8a86e; display: inline-block; border-radius: 4px; }
+
+        /* full-screen hero */
+        .hero-full {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: #1e1c18;
+        }
+        .hero-full .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        .hero-full .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.2) 0%, rgba(20,18,15,0.8) 90%);
+        }
+        .hero-full .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+
+        /* appearance effect */
+        .appear {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+        .appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .appear-delay-1 { transition-delay: 0.05s; }
+        .appear-delay-2 { transition-delay: 0.15s; }
+        .appear-delay-3 { transition-delay: 0.25s; }
+        .appear-delay-4 { transition-delay: 0.35s; }
+        .appear-delay-5 { transition-delay: 0.45s; }
+
+        /* service card */
+        .service-card .service-bg-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+        }
+        .service-card:hover .service-bg-overlay {
+            background: rgba(200, 168, 110, 0.85);
+        }
+        .service-card .service-icon {
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-4deg);
+        }
+        .service-card .service-img {
+            transition: transform 0.6s ease;
+        }
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #c8a86e 0%, #b8925a 100%);
+        }
+        .btn-outline-gold {
+            border: 2px solid #c8a86e;
+            color: #1e1c18;
+            transition: all 0.3s;
+        }
+        .btn-outline-gold:hover {
+            background: #c8a86e;
+            color: #fff;
+        }
+
+        /* placeholder image style */
+        .img-placeholder {
+            background: #e8e3da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0907c;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="transparent header-light header-float">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-inner">
+                        <div class="de-flex sm-pt10">
+                            <div class="de-flex-col">
+                                <div id="logo">
+                                    <a href="index.html">
+                                        <img class="logo-main" style="width: 120px;" src="images/logo.jpeg" alt="NEO Kitchens">
+                                        <img class="logo-scroll" src="images/logo.jpeg" alt="">
+                                        <img class="logo-mobile" src="images/logo.jpeg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="de-flex-col header-col-mid">
+                                <ul id="mainmenu">
+                                    <li><a class="menu-item" href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a class="menu-item active" href="services.html">Services</a></li>
+                                    <li><a class="menu-item" href="projects.html">Projects</a></li>
+                                    <li><a href="testimonials.html">Testimonials</a></li>
+                                    <li><a class="menu-item" href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="de-flex-col">
+                                <div class="menu_side_area">
+                                    <a href="get-a-quote.html" class="btn-main fx-slide"><span>Get a Quote</span></a>
+                                    <span id="menu-btn"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <a href="#" id="back-to-top"></a>
+        <div id="de-loader"></div>
+
+        <!-- ===== FULL-SCREEN HERO ===== -->
+        <section class="hero-full jarallax">
+            <img src="images/background/1.webp" class="hero-bg jarallax-img" alt="NEO Kitchens hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <span class="inline-block bg-white/10 backdrop-blur-sm text-white text-xs tracking-[0.2em] px-4 py-1.5 rounded-full mb-4 appear appear-delay-1">
+                            NEO KITCHENS
+                        </span>
+                        <h1 class="text-white text-5xl md:text-7xl font-bold leading-tight mb-4 appear appear-delay-2">
+                            Elevating kitchens,<br>transforming homes.
+                        </h1>
+                        <p class="text-white/80 text-lg max-w-xl appear appear-delay-3">
+                            From custom cabinetry to full-scale remodels – we craft the heart of your home with precision and style.
+                        </p>
+                        <ul class="crumb flex items-center gap-2 text-white/70 text-sm mt-6 appear appear-delay-4">
+                            <li><a href="index.html" class="text-white/60 hover:text-white">Home</a></li>
+                            <li class="text-white/30">/</li>
+                            <li class="active text-white font-medium">Services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES GRID ===== -->
+        <section class="section-pad bg-white">
+            <div class="container max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="subtitle appear">What we offer</span>
+                    <h2 class="text-4xl md:text-5xl font-bold appear appear-delay-1">Our kitchen services</h2>
+                    <div class="deco-line mx-auto mt-3 appear appear-delay-2"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto mt-4 appear appear-delay-3">
+                        Every kitchen tells a story. We combine expert craftsmanship with thoughtful design to create spaces that are as beautiful as they are functional.
+                    </p>
+                </div>
+
+                <div class="row g-5">
+                    <!-- 1 - Kitchen Remodeling -->
+                    <div class="col-lg-4 col-md-6 service-card appear appear-delay-1">
+                        <div class="relative rounded-2 overflow-hidden shadow-soft hover-lift h-full bg-white">
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="images/services/1.webp" class="service-img w-full h-full object-cover" alt="Kitchen Remodeling">
+                                <div class="service-bg-overlay absolute inset-0 transition-colors duration-300"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-kitchen-set service-icon text-white text-5xl opacity-80"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Kitchen Remodeling</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Transform your kitchen with custom cabinetry, premium countertops, elegant lighting, and layouts designed for modern living.</p>
+                                <a href="service-single.html" class="inline-block mt-4 text-gold font-medium hover:underline">Learn more <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 - Bathroom Renovation -->
+                    <div class="col-lg-4 col-md-6 service-card appear appear-delay-2">
+                        <div class="relative rounded-2 overflow-hidden shadow-soft hover-lift h-full bg-white">
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="images/services/2.webp" class="service-img w-full h-full object-cover" alt="Bathroom Renovation">
+                                <div class="service-bg-overlay absolute inset-0 transition-colors duration-300"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-bath service-icon text-white text-5xl opacity-80"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Bathroom Renovation</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Create a spa-inspired retreat with walk-in showers, elegant vanities, premium fixtures, and timeless finishes.</p>
+                                <a href="service-single.html" class="inline-block mt-4 text-gold font-medium hover:underline">Learn more <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 - Custom Cabinetry (placeholder) -->
+                    <div class="col-lg-4 col-md-6 service-card appear appear-delay-3">
+                        <div class="relative rounded-2 overflow-hidden shadow-soft hover-lift h-full bg-white">
+                            <div class="relative overflow-hidden aspect-[4/3] img-placeholder">
+                                <span class="text-gold font-semibold text-lg"><i class="fa-solid fa-cabinet-filing mr-2"></i>Cabinetry</span>
+                                <div class="service-bg-overlay absolute inset-0 transition-colors duration-300"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-cabinet-filing service-icon text-white text-5xl opacity-80"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Custom Cabinetry</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Bespoke cabinets tailored to your space and style, with premium materials, soft-close hardware, and flawless finishes.</p>
+                                <a href="service-single.html" class="inline-block mt-4 text-gold font-medium hover:underline">Learn more <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 - Countertop Installation (placeholder) -->
+                    <div class="col-lg-4 col-md-6 service-card appear appear-delay-2">
+                        <div class="relative rounded-2 overflow-hidden shadow-soft hover-lift h-full bg-white">
+                            <div class="relative overflow-hidden aspect-[4/3] img-placeholder">
+                                <span class="text-gold font-semibold text-lg"><i class="fa-solid fa-sink mr-2"></i>Countertops</span>
+                                <div class="service-bg-overlay absolute inset-0 transition-colors duration-300"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-sink service-icon text-white text-5xl opacity-80"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Countertop Installation</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Choose from quartz, granite, marble, and solid-surface options – installed with precision for a seamless, durable finish.</p>
+                                <a href="service-single.html" class="inline-block mt-4 text-gold font-medium hover:underline">Learn more <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5 - Lighting & Electrical (placeholder) -->
+                    <div class="col-lg-4 col-md-6 service-card appear appear-delay-3">
+                        <div class="relative rounded-2 overflow-hidden shadow-soft hover-lift h-full bg-white">
+                            <div class="relative overflow-hidden aspect-[4/3] img-placeholder">
+                                <span class="text-gold font-semibold text-lg"><i class="fa-solid fa-lightbulb mr-2"></i>Lighting</span>
+                                <div class="service-bg-overlay absolute inset-0 transition-colors duration-300"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-lightbulb service-icon text-white text-5xl opacity-80"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Lighting &amp; Electrical</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Enhance your kitchen with smart lighting, pendant fixtures, under-cabinet illumination, and modern electrical solutions.</p>
+                                <a href="service-single.html" class="inline-block mt-4 text-gold font-medium hover:underline">Learn more <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 - Full Kitchen Design (placeholder) -->
+                    <div class="col-lg-4 col-md-6 service-card appear appear-delay-4">
+                        <div class="relative rounded-2 overflow-hidden shadow-soft hover-lift h-full bg-white">
+                            <div class="relative overflow-hidden aspect-[4/3] img-placeholder">
+                                <span class="text-gold font-semibold text-lg"><i class="fa-solid fa-pen-ruler mr-2"></i>Design</span>
+                                <div class="service-bg-overlay absolute inset-0 transition-colors duration-300"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-pen-ruler service-icon text-white text-5xl opacity-80"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Full Kitchen Design</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">End-to-end kitchen design services – from concept and 3D renderings to material selection and project management.</p>
+                                <a href="service-single.html" class="inline-block mt-4 text-gold font-medium hover:underline">Learn more <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 appear appear-delay-5">
+                    <a href="get-a-quote.html" class="btn-main fx-slide"><span>Get a free quote</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHY CHOOSE NEO ===== -->
+        <section class="section-pad bg-soft-cream">
+            <div class="container max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="subtitle appear">Why NEO</span>
+                    <h2 class="text-4xl md:text-5xl font-bold appear appear-delay-1">Designed for life,<br>crafted for you.</h2>
+                    <div class="deco-line mx-auto mt-3 appear appear-delay-2"></div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4 appear appear-delay-2">
+                        <div class="bg-white p-8 rounded-2 shadow-soft h-full text-center hover-lift">
+                            <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                                <i class="fa-solid fa-hammer"></i>
+                            </div>
+                            <h4 class="text-xl font-bold">Expert Craftsmanship</h4>
+                            <p class="text-gray-600">Every joint, finish, and detail is executed by skilled professionals who take pride in their work.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 appear appear-delay-3">
+                        <div class="bg-white p-8 rounded-2 shadow-soft h-full text-center hover-lift">
+                            <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                                <i class="fa-solid fa-pencil"></i>
+                            </div>
+                            <h4 class="text-xl font-bold">Tailored Design</h4>
+                            <p class="text-gray-600">We design kitchens that reflect your personality, lifestyle, and cooking habits – no two are alike.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 appear appear-delay-4">
+                        <div class="bg-white p-8 rounded-2 shadow-soft h-full text-center hover-lift">
+                            <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h4 class="text-xl font-bold">On-Time Delivery</h4>
+                            <p class="text-gray-600">We respect your time and budget, with clear timelines and transparent communication throughout.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROCESS OVERVIEW ===== -->
+        <section class="section-pad bg-white">
+            <div class="container max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="subtitle appear">How we work</span>
+                    <h2 class="text-4xl md:text-5xl font-bold appear appear-delay-1">Your kitchen journey</h2>
+                    <div class="deco-line mx-auto mt-3 appear appear-delay-2"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 appear appear-delay-2">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h4 class="text-lg font-bold">Consultation</h4>
+                        <p class="text-gray-600 text-sm">We discuss your ideas, budget, and lifestyle to understand your perfect kitchen.</p>
+                    </div>
+                    <div class="text-center p-6 appear appear-delay-3">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h4 class="text-lg font-bold">Design &amp; Selection</h4>
+                        <p class="text-gray-600 text-sm">We create detailed plans, 3D renderings, and help you choose materials and finishes.</p>
+                    </div>
+                    <div class="text-center p-6 appear appear-delay-4">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h4 class="text-lg font-bold">Installation &amp; Finishing</h4>
+                        <p class="text-gray-600 text-sm">Our team brings the design to life with precision, care, and a final walkthrough.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12 appear appear-delay-5" style="margin-top: 300px;">
+                    <a href="get-a-quote.html" class="btn-outline-gold px-8 py-3 rounded-full inline-block font-medium">Start your project</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="section-dark">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-sm-6">
+                    <img src="images/logo-white.webp" class="logo-footer" alt="NEO Kitchens">
+                    <div class="spacer-20"></div>
+                    <p>We specialize in residential and commercial renovations, delivering quality craftsmanship, innovative designs, and reliable project management. From remodeling single rooms to complete property transformations, we bring your vision to life with precision and care.</p>
+                    <div class="social-icons mb-sm-30">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="widget">
+                                <h2 class="hs-5">Company</h2>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="services.html">Our Services</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="widget">
+                                <h2 class="hs-5">Our Services</h2>
+                                <ul>
+                                    <li><a href="service-single.html">Home Renovation</a></li>
+                                    <li><a href="service-single.html">Kitchen Remodeling</a></li>
+                                    <li><a href="service-single.html">Bathroom Renovation</a></li>
+                                    <li><a href="service-single.html">Interior Remodeling</a></li>
+                                    <li><a href="service-single.html">Exterior Renovation</a></li>
+                                    <li><a href="service-single.html">Commercial Renovation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
+                    <div class="widget">
+                        <div class="fw-bold text-white"><i class="icofont-clock-time me-2 id-color-2"></i>Working Hours</div>
+                        Monday - Sat: 8:00 AM - 6:00 PM<br>
+                        <div class="spacer-20"></div>
+                        <div class="fw-bold text-white"><i class="icofont-location-pin me-2 id-color-2"></i>Office Location</div>
+                        100 S Main Street, New York, NY 10001
+                        <div class="spacer-20"></div>
+                        <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color-2"></i>Email Us</div>
+                        contact@neokitchens.com
+                        <div class="spacer-10"></div>
+                        <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color-2"></i>Call Us</div>
+                        +1 (800) 123-4567
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex">
+                            <div class="de-flex-col">Copyright © 2026 NEO Kitchens. All Rights Reserved.</div>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#">Terms &amp; Conditions</a></li>
+                                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/vendors.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/custom-swiper-1.js"></script>
+    <script src="js/custom-marquee.js"></script>
+
+    <!-- Appearance effect -->
+    <script>
+        (function() {
+            const appears = document.querySelectorAll('.appear');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+            appears.forEach(el => observer.observe(el));
+            document.querySelectorAll('.hero-full .appear').forEach(el => el.classList.add('visible'));
+        })();
+    </script>
+</body>
+</html>
